@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 1861888317399515598}
   - component: {fileID: 1861888317399515599}
   - component: {fileID: 1861888317399515600}
+  - component: {fileID: 1349378976874968635}
   m_Layer: 5
   m_Name: TitleCanvas
   m_TagString: Untagged
@@ -314,6 +315,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1349378976874968635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861888317399515601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343ae50ad7b741c1875251c6bd2c1c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 2
 --- !u!1 &1861888318034427330
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,3 +594,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1250627603868354735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8878878417321921470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d1dff9b4b547038889765b1523b8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTo: 2
