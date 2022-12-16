@@ -7,7 +7,7 @@ namespace CleanCity
 		[SerializeField] private float speed = 100;
 		
 		private Rigidbody rb;
-		[SerializeField] private Vector3 moveDir;
+		private Vector3 moveDir;
 
 		private void Start()
 		{
@@ -18,6 +18,7 @@ namespace CleanCity
 		public void SetMoveDir(Vector3 dir)
 		{
 			moveDir = dir;
+			transform.rotation = Quaternion.LookRotation(moveDir);
 		}
 
 		private void Update()
