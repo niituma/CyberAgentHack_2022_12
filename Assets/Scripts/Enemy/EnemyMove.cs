@@ -12,11 +12,11 @@ namespace CleanCity
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
-			SetMovePosition(new Vector3(0, 0, 60));
+			SetMoveDistination(new Vector3(0, 0, 60));
 		}
 
 		/// <summary>移動する位置を設定</summary>
-		public void SetMovePosition(Vector3 position)
+		public void SetMoveDistination(Vector3 position)
 		{
 			movePosition = position;
 		}
