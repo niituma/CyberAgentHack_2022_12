@@ -5,7 +5,8 @@ namespace CleanCity
   [DefaultExecutionOrder(-100000000)]
   public class GameSystem : MonoBehaviour
   {
-    public GameSystem Singleton
+
+    public static GameSystem Singleton
     {
       get;
       private set;
