@@ -5,11 +5,11 @@ namespace CleanCity
 {
 	public class PlayerStatusManager : MonoBehaviour, IPlayerStatusManager
 	{
-		/// <summary>Å‘å‘Ì—Í</summary>
+		/// <summary>æœ€å¤§ä½“åŠ›</summary>
 		[SerializeField] private int maxHp;
-		/// <summary>‘Ì—Í</summary>
+		/// <summary>ä½“åŠ›</summary>
 		[SerializeField] private int hp;
-		/// <summary>Šî–{‘¬“x</summary>
+		/// <summary>åŸºæœ¬é€Ÿåº¦</summary>
 		[SerializeField] private int baseSpeed;
 
 		public int MaxHp => maxHp;

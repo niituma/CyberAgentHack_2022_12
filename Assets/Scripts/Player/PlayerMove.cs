@@ -22,7 +22,7 @@ namespace CleanCity
 			CheckMove();
 		}
 
-		//ˆÚ“®
+		//ç§»å‹•
 		private void Move(Vector3 dir)
 		{
 			dir = new Vector3(dir.x, 0, dir.z);
@@ -31,7 +31,7 @@ namespace CleanCity
 			animator.StartMove();
 		}
 
-		//ˆÚ“®I—¹
+		//ç§»å‹•çµ‚äº†
 		private void EndMove()
 		{
 			animator.EndMove();
@@ -39,17 +39,17 @@ namespace CleanCity
 
 		private void CheckMove()
 		{
-			//ƒ}ƒEƒXˆÚ“®
+			//ãƒã‚¦ã‚¹ç§»å‹•
 			Vector3 dir = Vector2.zero;
 			if (Input.GetMouseButton(0))
 			{
-				//ƒJƒƒ‰‚©‚çŒ©‚½ƒ}ƒEƒX‚ÌˆÊ’u‚ÆŒ»İˆÊ’u‚©‚ç•ûŒü‚ğZo
+				//ã‚«ãƒ¡ãƒ©ã‹ã‚‰è¦‹ãŸãƒã‚¦ã‚¹ã®ä½ç½®ã¨ç¾åœ¨ä½ç½®ã‹ã‚‰æ–¹å‘ã‚’ç®—å‡º
 				var distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 				Vector3 cameraPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance));
 				dir = (cameraPos - transform.position).normalized;
 			}
 
-			//ƒL[ƒ{[ƒhˆÚ“®
+			//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç§»å‹•
 			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 			{
 				dir += Vector3.forward;
