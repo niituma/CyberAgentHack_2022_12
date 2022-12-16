@@ -42,6 +42,9 @@ namespace CleanCity
         {
           return;
         }
+        
+        Debug.Log("Game : " + value.ToString());
+        
         var before = _state;
         _state = value;
         onStatusChanged?.Invoke(before, value);

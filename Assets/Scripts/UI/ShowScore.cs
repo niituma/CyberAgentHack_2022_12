@@ -7,7 +7,7 @@ using UnityEngine;
 using Utility;
 using static UnityEngine.Rendering.DebugUI;
 
-namespace CleanCity_UI
+namespace CleanCity.UI
 {
     public class ShowScore : MonoBehaviour
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9117249377300341109}
   - component: {fileID: 9117249377300341111}
   - component: {fileID: 244568578042072600}
-  - component: {fileID: 1795155607989139899}
+  - component: {fileID: 4738089800869994352}
   m_Layer: 0
   m_Name: HumanEnemyBase
   m_TagString: Untagged
@@ -44,7 +44,7 @@ Rigidbody:
   m_GameObject: {fileID: 9117249377300341110}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 45
+  m_Drag: 20
   m_AngularDrag: 99999
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0385779268c37684f8fc4c193ba09211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 10
 --- !u!114 &244568578042072600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePoint: 1
---- !u!65 &1795155607989139899
-BoxCollider:
+--- !u!136 &4738089800869994352
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -87,6 +87,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 24, z: 10}
-  m_Center: {x: 0, y: 12, z: 0}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
