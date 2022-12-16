@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Girl : MonoBehaviour
+namespace CleanCity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public class Enemy_Girl : MonoBehaviour, ISetEnemyMoveDir
+	{
+		public void SetMoveDistination(Vector3 position)
+		{
+			//プレイヤーに直進するので、設定する必要なし
+		}
+	}
 }

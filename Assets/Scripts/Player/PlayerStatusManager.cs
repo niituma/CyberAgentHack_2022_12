@@ -46,6 +46,9 @@ namespace CleanCity
 
 		public void Dead()
 		{
+			//すでに死んでいたら無視する
+			if (IsDead) return;
+
 			Debug.Log("死亡");
 			IsDead = true;
 			//コールバック
