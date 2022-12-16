@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,10 @@ namespace CleanCity
   [DefaultExecutionOrder(-100000000)]
   public class GameSystem : MonoBehaviour
   {
+    
+    private const string MainSceneName = "MainScene";
+    private const string TitleSceneName = "TitleScene";
+    private const string GameSceneName = "GameScene";
 
     public static GameSystem Singleton
     {
@@ -57,11 +62,33 @@ namespace CleanCity
         Destroy(Singleton.gameObject);
       }
       Singleton = this;
+
+      InitializeScene();
     }
 
     private void Start()
     {
       Status = State.Menu;
+    }
+
+    /// <summary>
+    /// MainSceneにTitleとGameを合成する
+    /// </summary>
+    private async void InitializeScene()
+    {
+      var mainScene = SceneManager.GetSceneByName(MainSceneName);
+      
+      // load title scene
+      await SceneManager.LoadSceneAsync(TitleSceneName, LoadSceneMode.Additive);
+      var titleScene = SceneManager.GetSceneByName(TitleSceneName);
+      
+      // load game scene
+      await SceneManager.LoadSceneAsync(GameSceneName, LoadSceneMode.Additive);
+      var gameScene = SceneManager.GetSceneByName(GameSceneName);
+      
+      // merge scenes
+      SceneManager.MergeScenes(titleScene, mainScene);
+      SceneManager.MergeScenes(gameScene, mainScene);
     }
 
     /// <summary>
