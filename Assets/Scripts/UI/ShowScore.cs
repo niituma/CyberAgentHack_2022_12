@@ -1,4 +1,4 @@
-using DG.Tweening;
+Ôªøusing DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,14 +11,14 @@ namespace CleanCity_UI
 {
     public class ShowScore : MonoBehaviour
     {
-        [SerializeField] float _time = 1f; 
+        [SerializeField] float _time = 1f;
         [SerializeField] TextMeshProUGUI _text;
         [SerializeField] bool _startShow = false;
         int _score;
 
         public int Score
         {
-            set
+            private set
             {
                 _score = value;
                 _text.text = $"SCORE:{_score}";
@@ -28,22 +28,24 @@ namespace CleanCity_UI
 
         private void Awake()
         {
-           Locator<ShowScore>.Register(this);
+            Locator<ShowScore>.Register(this);
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            if (_startShow) { ScoreShow(Score+10); }
+            if (_startShow) { ScoreShow(Score + 10); }
         }
 
         /// <summary>
-        /// scoreÇçXêVÇµÇƒTextÇ…ï\é¶Ç∑ÇÈ
+        /// score„ÇíÊõ¥Êñ∞„Åó„Å¶Text„Å´Ë°®Á§∫„Åô„Çã
         /// </summary>
         /// <param name="value"></param>
         public void ScoreShow(int value)
         {
-            DOTween.To(() => Score, num => Score = num, value, _time);
+            DOTween.Sequence()
+                .Append(DOTween.To(() => Score, num => Score = num, value, _time))
+                .Join(transform.DOShakeScale(duration: _time, strength: 0.3f));
         }
     }
 }
