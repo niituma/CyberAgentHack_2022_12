@@ -4,16 +4,16 @@ namespace CleanCity
 {
     public interface IPlayerStatusManager
     {
-        /// <summary>最大体力</summary>
+        /// <summary>譛螟ｧ菴灘鴨</summary>
         int MaxHp { get; }
-        /// <summary>体力</summary>
+        /// <summary>菴灘鴨</summary>
         int Hp { get; }
-        /// <summary>基本速度</summary>
+        /// <summary>蝓ｺ譛ｬ騾溷ｺｦ</summary>
         int BaseSpeed { get; }
 
-        /// <summary>ダメージを受けた時のコールバック</summary>
+        /// <summary>繝繝｡繝ｼ繧ｸ繧貞女縺代◆譎ゅ�ｮ繧ｳ繝ｼ繝ｫ繝舌ャ繧ｯ</summary>
         event Action<int> OnDamage;
-        /// <summary>死んだ時のコールバック</summary>
+        /// <summary>豁ｻ繧薙□譎ゅ�ｮ繧ｳ繝ｼ繝ｫ繝舌ャ繧ｯ</summary>
         event Action OnDead;
     }
 }

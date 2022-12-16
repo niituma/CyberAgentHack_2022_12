@@ -6,19 +6,19 @@ namespace CleanCity
     {
         [SerializeField] private Animator animator;
 
-        /// <summary>ˆÚ“®ŠJŽn‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ç§»å‹•é–‹å§‹ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         public void StartMove()
         {
             animator.SetBool("Move", true);
         }
 
-        /// <summary>ˆÚ“®I—¹‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ç§»å‹•çµ‚äº†ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         public void EndMove()
         {
             animator.SetBool("Move", false);
         }
 
-        /// <summary>ƒ_ƒ[ƒW‚ðŽó‚¯‚½Žž‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸæ™‚ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         public void Damage()
         {
             animator.SetTrigger("Damage");

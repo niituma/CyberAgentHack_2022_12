@@ -2,11 +2,11 @@ namespace CleanCity
 {
     public interface IPlayerAnimator
     {
-        /// <summary>ˆÚ“®ŠJŽn‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ç§»å‹•é–‹å§‹ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         void StartMove();
-        /// <summary>ˆÚ“®I—¹‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ç§»å‹•çµ‚äº†ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         void EndMove();
-        /// <summary>ƒ_ƒ[ƒW‚ðŽó‚¯‚½Žž‚ÌƒAƒjƒ[ƒVƒ‡ƒ“</summary>
+        /// <summary>ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å—ã‘ãŸæ™‚ã®ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³</summary>
         void Damage();
     }
 }
