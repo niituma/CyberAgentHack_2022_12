@@ -9,8 +9,7 @@ namespace CleanCity
 		private Rigidbody rb;
 		private IPlayerStatusManager statusManager;
 		private IPlayerAnimator animator;
-
-		private bool isDead = false;
+		private IDeadable deadable;
 
 		private void Start()
 		{
@@ -19,13 +18,13 @@ namespace CleanCity
 			animator = GetComponent<IPlayerAnimator>();
 
 			//死亡時、動けなくする
-			GetComponent<IDeadable>().OnDead += () => isDead = true;
+			deadable = GetComponent<IDeadable>();
 		}
 
 		private void Update()
 		{
 			//死んでいる場合動けない
-			if (isDead) return;
+			if (deadable.IsDead) return;
 
 			CheckMove();
 		}
