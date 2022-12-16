@@ -8,44 +8,48 @@ namespace CleanCity
 	{
 		private Rigidbody rb;
 		private IPlayerStatusManager statusManager;
+		private IPlayerAnimator animator;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			statusManager = GetComponent<IPlayerStatusManager>();
+			animator = GetComponent<IPlayerAnimator>();
 		}
 
 		private void Update()
 		{
-			MouseMove();
-			KeyInputMove();
+			CheckMove();
 		}
 
 		//移動
-		public void Move(Vector3 dir)
+		private void Move(Vector3 dir)
 		{
 			dir = new Vector3(dir.x, 0, dir.z);
 			rb.velocity = dir * statusManager.BaseSpeed;
 			transform.rotation = Quaternion.LookRotation(dir);
+			animator.StartMove();
 		}
 
-		//マウス移動
-		private void MouseMove()
+		//移動終了
+		private void EndMove()
 		{
+			animator.EndMove();
+		}
+
+		private void CheckMove()
+		{
+			//マウス移動
+			Vector3 dir = Vector2.zero;
 			if (Input.GetMouseButton(0))
 			{
 				//カメラから見たマウスの位置と現在位置から方向を算出
 				var distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 				Vector3 cameraPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance));
-				Vector3 dir = (cameraPos - transform.position).normalized;
-				Move(dir);
+				dir = (cameraPos - transform.position).normalized;
 			}
-		}
 
-		//キーボード移動
-		private void KeyInputMove()
-		{
-			Vector3 dir = Vector2.zero;
+			//キーボード移動
 			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 			{
 				dir += Vector3.forward;
@@ -62,7 +66,15 @@ namespace CleanCity
 			{
 				dir += Vector3.right;
 			}
-			if(dir != Vector3.zero) Move(dir.normalized);
+
+			if (dir != Vector3.zero)
+			{
+				Move(dir.normalized);
+			}
+			else
+			{
+				EndMove();
+			}
 		}
 	}
 }
