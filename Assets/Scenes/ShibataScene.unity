@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7186368370227774957, guid: 9825be21016a08b41801cd7205932c50, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7186368370227774957, guid: 9825be21016a08b41801cd7205932c50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -264,6 +264,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &408964099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8888563484558632589, guid: 582864056ee724140adc1bc72dedd0d0, type: 3}
+  m_PrefabInstance: {fileID: 1610235921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2266c3149a389be409a6da18d791d834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &416720339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,7 +284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4799205648539288569, guid: 334409bb5b72d4142902e9f9f7de0f3f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4799205648539288569, guid: 334409bb5b72d4142902e9f9f7de0f3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,6 +332,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334409bb5b72d4142902e9f9f7de0f3f, type: 3}
+--- !u!1 &552308997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 552308999}
+  - component: {fileID: 552308998}
+  m_Layer: 0
+  m_Name: Mappings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &552308998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552308997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6831fc6529cebac4ba609c9f7476adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatusManager: {fileID: 408964099}
+--- !u!4 &552308999
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552308997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &625329907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,7 +386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3703864443079761153, guid: 861e1e8f5129d2d41b0ebb7a5b112f98, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3703864443079761153, guid: 861e1e8f5129d2d41b0ebb7a5b112f98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9123754144689802614, guid: 0d915c9648af81f44bcb8148cbde7057, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9123754144689802614, guid: 0d915c9648af81f44bcb8148cbde7057, type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,7 +500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8888563484558632560, guid: 582864056ee724140adc1bc72dedd0d0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8888563484558632560, guid: 582864056ee724140adc1bc72dedd0d0, type: 3}
       propertyPath: m_LocalPosition.x

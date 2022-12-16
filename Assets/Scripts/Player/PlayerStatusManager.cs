@@ -15,6 +15,7 @@ namespace CleanCity
 		public int MaxHp => maxHp;
 		public int Hp => hp;
 		public int BaseSpeed => baseSpeed;
+		public Vector3 GetPosition => transform.position;
 
 		public bool IsDead { get; private set; } = false;
 
