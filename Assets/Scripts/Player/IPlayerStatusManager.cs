@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace CleanCity
 {
@@ -10,5 +11,7 @@ namespace CleanCity
         int Hp { get; }
         /// <summary>基本速度</summary>
         int BaseSpeed { get; }
+        /// <summary>プレイヤーの位置</summary>
+        Vector3 GetPosition { get; }
     }
 }
