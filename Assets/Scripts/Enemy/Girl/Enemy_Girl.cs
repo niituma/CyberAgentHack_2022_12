@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ namespace CleanCity
 	{
 		public void SetMoveDistination(Vector3 position)
 		{
-			//ƒvƒŒƒCƒ„[‚É’¼i‚·‚é‚Ì‚ÅAİ’è‚·‚é•K—v‚È‚µ
+			//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ç›´é€²ã™ã‚‹ã®ã§ã€è¨­å®šã™ã‚‹å¿…è¦ãªã—
 		}
 	}
 }
