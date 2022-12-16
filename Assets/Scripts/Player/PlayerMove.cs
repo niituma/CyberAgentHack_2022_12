@@ -8,44 +8,48 @@ namespace CleanCity
 	{
 		private Rigidbody rb;
 		private IPlayerStatusManager statusManager;
+		private IPlayerAnimator animator;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			statusManager = GetComponent<IPlayerStatusManager>();
+			animator = GetComponent<IPlayerAnimator>();
 		}
 
 		private void Update()
 		{
-			MouseMove();
-			KeyInputMove();
+			CheckMove();
 		}
 
-		//ˆÚ“®
-		public void Move(Vector3 dir)
+		//ç§»å‹•
+		private void Move(Vector3 dir)
 		{
 			dir = new Vector3(dir.x, 0, dir.z);
 			rb.velocity = dir * statusManager.BaseSpeed;
 			transform.rotation = Quaternion.LookRotation(dir);
+			animator.StartMove();
 		}
 
-		//ƒ}ƒEƒXˆÚ“®
-		private void MouseMove()
+		//ç§»å‹•çµ‚äº†
+		private void EndMove()
 		{
+			animator.EndMove();
+		}
+
+		private void CheckMove()
+		{
+			//ãƒã‚¦ã‚¹ç§»å‹•
+			Vector3 dir = Vector2.zero;
 			if (Input.GetMouseButton(0))
 			{
-				//ƒJƒƒ‰‚©‚çŒ©‚½ƒ}ƒEƒX‚ÌˆÊ’u‚ÆŒ»İˆÊ’u‚©‚ç•ûŒü‚ğZo
+				//ã‚«ãƒ¡ãƒ©ã‹ã‚‰è¦‹ãŸãƒã‚¦ã‚¹ã®ä½ç½®ã¨ç¾åœ¨ä½ç½®ã‹ã‚‰æ–¹å‘ã‚’ç®—å‡º
 				var distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 				Vector3 cameraPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance));
-				Vector3 dir = (cameraPos - transform.position).normalized;
-				Move(dir);
+				dir = (cameraPos - transform.position).normalized;
 			}
-		}
 
-		//ƒL[ƒ{[ƒhˆÚ“®
-		private void KeyInputMove()
-		{
-			Vector3 dir = Vector2.zero;
+			//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ç§»å‹•
 			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 			{
 				dir += Vector3.forward;
@@ -62,7 +66,15 @@ namespace CleanCity
 			{
 				dir += Vector3.right;
 			}
-			if(dir != Vector3.zero) Move(dir.normalized);
+
+			if (dir != Vector3.zero)
+			{
+				Move(dir.normalized);
+			}
+			else
+			{
+				EndMove();
+			}
 		}
 	}
 }
