@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 
-namespace CleanCity_UI
+namespace CleanCity.UI
 {
     public class LifeGauge : MonoBehaviour
     {
