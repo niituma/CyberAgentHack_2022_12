@@ -10,15 +10,22 @@ namespace CleanCity
 		private IPlayerStatusManager statusManager;
 		private IPlayerAnimator animator;
 
+		private bool isDead = false;
+
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			statusManager = GetComponent<IPlayerStatusManager>();
 			animator = GetComponent<IPlayerAnimator>();
+
+			statusManager.OnDead += () => isDead = true;
 		}
 
 		private void Update()
 		{
+			//死んでいる場合動けない
+			if (isDead) return;
+
 			CheckMove();
 		}
 
