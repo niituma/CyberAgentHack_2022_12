@@ -7,23 +7,29 @@ namespace CleanCity
 		[SerializeField] private float speed = 100;
 		
 		private Rigidbody rb;
-		private Vector3 moveDir;
+		private Vector3 movePosition;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
+			SetMovePosition(new Vector3(0, 0, 60));
 		}
 
-		/// <summary>移動方向設定</summary>
-		public void SetMoveDir(Vector3 dir)
+		/// <summary>移動する位置を設定</summary>
+		public void SetMovePosition(Vector3 position)
 		{
-			moveDir = dir;
-			transform.rotation = Quaternion.LookRotation(moveDir);
+			movePosition = position;
 		}
 
 		private void Update()
 		{
+			Vector3 moveDir = (movePosition - transform.position).normalized;
 			rb.velocity = moveDir * speed;
+			transform.rotation = Quaternion.LookRotation(new Vector3(moveDir.x, 0, moveDir.z));
+			if (Vector3.Distance(transform.position, movePosition) < 5)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 }
