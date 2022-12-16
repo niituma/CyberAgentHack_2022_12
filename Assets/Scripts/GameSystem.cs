@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CleanCity
 {
@@ -17,7 +18,8 @@ namespace CleanCity
       Init,
       Menu,
       InGame,
-      Result
+      Result,
+      BeforeReload
     }
 
     private State _state = State.Init;
@@ -61,5 +63,15 @@ namespace CleanCity
     {
       Status = State.Menu;
     }
+
+    /// <summary>
+    /// ゲームを再読み読みする
+    /// </summary>
+    public static void RestartGame()
+    {
+      Singleton.Status = State.BeforeReload;
+      SceneManager.LoadScene(MainSceneName);
+    }
+    
   }
 }
