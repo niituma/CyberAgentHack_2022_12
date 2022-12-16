@@ -33,6 +33,7 @@ namespace CleanCity
 			}
 		}
 
+		//攻撃を受けた後の無敵時間を待機
 		private IEnumerator DamageCoolTime()
 		{
 			nowWaitCoolTime = true;
