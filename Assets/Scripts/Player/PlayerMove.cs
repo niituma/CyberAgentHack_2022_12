@@ -9,16 +9,23 @@ namespace CleanCity
 		private Rigidbody rb;
 		private IPlayerStatusManager statusManager;
 		private IPlayerAnimator animator;
+		private IDeadable deadable;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			statusManager = GetComponent<IPlayerStatusManager>();
 			animator = GetComponent<IPlayerAnimator>();
+
+			//死亡時、動けなくする
+			deadable = GetComponent<IDeadable>();
 		}
 
 		private void Update()
 		{
+			//死んでいる場合動けない
+			if (deadable.IsDead) return;
+
 			CheckMove();
 		}
 

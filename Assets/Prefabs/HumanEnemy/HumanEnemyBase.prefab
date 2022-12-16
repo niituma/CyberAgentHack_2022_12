@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9117249377300341108}
   - component: {fileID: 9117249377300341109}
   - component: {fileID: 9117249377300341111}
+  - component: {fileID: 244568578042072600}
   - component: {fileID: 1795155607989139899}
   m_Layer: 0
   m_Name: HumanEnemyBase
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 500
+--- !u!114 &244568578042072600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117249377300341110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b5ecbf4754f6f41bdd5dd30fb8f6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePoint: 1
 --- !u!65 &1795155607989139899
 BoxCollider:
   m_ObjectHideFlags: 0
