@@ -52,3 +52,6 @@ Thumbs.db
 
 #python bytecode cache, for some plugins.
 *.pyc
+
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/default-2021.dwlt
