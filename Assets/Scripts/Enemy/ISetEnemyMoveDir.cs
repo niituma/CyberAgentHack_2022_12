@@ -4,6 +4,6 @@ namespace CleanCity
 {
     public interface ISetEnemyMoveDir
     {
-        void SetMoveDir(Vector3 position);
+        void SetMoveDir(Vector3 dir);
     }
 }
