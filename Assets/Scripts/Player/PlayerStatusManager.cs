@@ -16,6 +16,8 @@ namespace CleanCity
 		public int Hp => hp;
 		public int BaseSpeed => baseSpeed;
 
+		public bool IsDead { get; private set; } = false;
+
 		/// <summary>ダメージを受けた時のコールバック</summary>
 		public event Action<int> OnDamage;
 		/// <summary>死亡したときのコールバック</summary>
@@ -23,14 +25,9 @@ namespace CleanCity
 
 		public void Damage(int point)
 		{
-			hp -= point;
+			if (IsDead) return;
 
-			//体力が0より低くなるとき、強制的に0にする
-			if (hp < 0)
-			{
-				hp = 0;
-				point = 0;
-			}
+			hp -= point;
 
 			//受けたダメージが0であれば無視する
 			if (point == 0) return;
@@ -39,6 +36,7 @@ namespace CleanCity
 			OnDamage?.Invoke(point);
 
 			Debug.Log("ダメージ:" + point);
+
 			//体力が0になった時、死亡
 			if(hp <= 0)
 			{
@@ -49,6 +47,7 @@ namespace CleanCity
 		public void Dead()
 		{
 			Debug.Log("死亡");
+			IsDead = true;
 			//コールバック
 			OnDead?.Invoke();
 		}

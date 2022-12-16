@@ -10,10 +10,5 @@ namespace CleanCity
         int Hp { get; }
         /// <summary>基本速度</summary>
         int BaseSpeed { get; }
-
-        /// <summary>ダメージを受けた時のコールバック</summary>
-        event Action<int> OnDamage;
-        /// <summary>死んだ時のコールバック</summary>
-        event Action OnDead;
     }
 }

@@ -18,7 +18,8 @@ namespace CleanCity
 			statusManager = GetComponent<IPlayerStatusManager>();
 			animator = GetComponent<IPlayerAnimator>();
 
-			statusManager.OnDead += () => isDead = true;
+			//死亡時、動けなくする
+			GetComponent<IDeadable>().OnDead += () => isDead = true;
 		}
 
 		private void Update()
