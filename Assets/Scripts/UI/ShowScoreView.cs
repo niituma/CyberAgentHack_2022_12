@@ -22,7 +22,7 @@ public class ShowScoreView : MonoBehaviour
                 {
                     // 背景バーはアニメーションで更新
                     _scoreCurrentValue = value;
-                    _scoreText.text = $"Score:{_scoreCurrentValue}";
+                    _scoreText.text = $"SCORE:{_scoreCurrentValue}";
                 },
                 value, time);
         if (!_scoreAnim) { _scoreText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _scoreAnim = false); }
@@ -37,7 +37,7 @@ public class ShowScoreView : MonoBehaviour
                 {
                     // 背景バーはアニメーションで更新
                     _countCurrentValue = value;
-                    _countText.text = $"Score:{_countCurrentValue}";
+                    _countText.text = $"COUNT:{_countCurrentValue}";
                 },
                 value, time);
         if (!_countAnim) { _countText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _countAnim = false); }
