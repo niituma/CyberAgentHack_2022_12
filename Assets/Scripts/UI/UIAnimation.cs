@@ -12,7 +12,7 @@ public class UIAnimation : MonoBehaviour
         _tween = WindowAnim(1, 1, Ease.OutBounce, true);
         _tween.Play();
     }
-    public void ClozeWindow()
+    public void CloseWindow()
     {
         if (_tween is not null) { _tween.Kill(); }
         transform.localScale = Vector3.one;

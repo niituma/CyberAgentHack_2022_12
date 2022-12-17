@@ -333,14 +333,14 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 425086279}
-        m_TargetAssemblyTypeName: CleanCity_UI.ShowScorePresenter, Assembly-CSharp
+        m_TargetAssemblyTypeName: CleanCity.UI.ShowScorePresenter, Assembly-CSharp
         m_MethodName: CountShow
-        m_Mode: 3
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
+          m_IntArgument: 0
+          m_FloatArgument: 0.1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -877,6 +877,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803519490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4481833623986297590, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+  m_PrefabInstance: {fileID: 3515901689493838229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039914385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,6 +1140,10 @@ PrefabInstance:
       propertyPath: _scoreText
       value: 
       objectReference: {fileID: 470112842}
+    - target: {fileID: 425086282, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: _quotaSlider
+      value: 
+      objectReference: {fileID: 1803519490}
     - target: {fileID: 470526364663314075, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: _countdownMinutes
       value: 0
@@ -1224,6 +1239,34 @@ PrefabInstance:
     - target: {fileID: 3515901689519763918, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481833623986297590, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289528444620829452, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_text
+      value: "\u30CE\u30EB\u30DE"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289528444620829452, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289528444620829452, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345231433981583119, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031847674490911844, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8031847674490911844, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445738914650477550, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: m_AnchorMax.y
