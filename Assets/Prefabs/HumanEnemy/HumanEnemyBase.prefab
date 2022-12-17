@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  destroyArea: 2
 --- !u!114 &244568578042072600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,4 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62740f634f6e89409fd6743701f2abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwInterval: 1.5
+  throwIntervalMin: 0.1
+  throwIntervalMax: 1.5
+  isTest: 0
