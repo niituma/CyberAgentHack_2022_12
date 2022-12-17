@@ -46,8 +46,8 @@ namespace CleanCity
 
 		private void CheckMove()
 		{
+			/*
 			//マウス移動
-			Vector3 dir = Vector2.zero;
 			if (Input.GetMouseButton(0))
 			{
 				//カメラから見たマウスの位置と現在位置から方向を算出
@@ -55,6 +55,8 @@ namespace CleanCity
 				Vector3 cameraPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance));
 				dir = (cameraPos - transform.position).normalized;
 			}
+			*/
+			Vector3 dir = Vector2.zero;
 
 			//キーボード移動
 			if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
