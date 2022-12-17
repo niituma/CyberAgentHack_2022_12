@@ -27,6 +27,7 @@ namespace CleanCity
             {
                 wave++;
                 OnAddWave?.Invoke(wave);
+                UnityEngine.Debug.Log("Wave:" + wave);
             }
         }
     }
