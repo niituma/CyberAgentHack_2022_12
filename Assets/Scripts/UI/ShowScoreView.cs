@@ -15,8 +15,6 @@ public class ShowScoreView : MonoBehaviour
     int _countCurrentValue;
     bool _scoreAnim;
     bool _countAnim;
-    [SerializeField] TextMeshProUGUI _text;
-    int _tempCurrentValue;
     public void SetScoreText(int value, float time)
     {
         DOTween.To(() => _scoreCurrentValue,
@@ -25,8 +23,6 @@ public class ShowScoreView : MonoBehaviour
                     // 背景バーはアニメーションで更新
                     _scoreCurrentValue = value;
                     _scoreText.text = $"Score:{_scoreCurrentValue}";
-                    _tempCurrentValue = value;
-                    _text.text = $"Score:{_tempCurrentValue}";
                 },
                 value, time);
         if (!_scoreAnim) { _scoreText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _scoreAnim = false); }

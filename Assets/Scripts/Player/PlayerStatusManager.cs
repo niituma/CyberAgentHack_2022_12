@@ -36,7 +36,6 @@ namespace CleanCity
 			if (IsDead) return;
 
 			hp -= point;
-            Locator<LifeGauge>.Resolve().SetDamageLifeGauge(point);
 
             //受けたダメージが0であれば無視する
             if (point == 0) return;

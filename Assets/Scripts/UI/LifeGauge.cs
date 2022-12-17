@@ -18,9 +18,12 @@ namespace CleanCity.UI
         float _motionTime = 1f;
 
         // Start is called before the first frame update
-        void Awake()
+        void Start()
         {
-            Locator<LifeGauge>.Register(this);
+            Locator<IDamageable>.Resolve().OnDamage += (point) =>
+            {
+                SetDamageLifeGauge(point);
+            };
         }
 
         /// <summary>
