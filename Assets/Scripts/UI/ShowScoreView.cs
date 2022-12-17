@@ -17,11 +17,7 @@ public class ShowScoreView : MonoBehaviour
     int _scoreCurrentValue;
     bool _scoreAnim;
     Tween _countAnim;
-    public void SetQuota()
-    {
-        //_quotaText.text = $"ƒmƒ‹ƒ}:{Locator<IQuota>.Resolve().GetNextQuoa(Locator<IWaveSystem>.Resolve().GetWave)}";
-    }
-
+    
     public void SetScoreText(int value, float time)
     {
         DOTween.To(() => _scoreCurrentValue,

@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace CleanCity
 {
@@ -9,7 +7,8 @@ namespace CleanCity
     public class SoundBank : MonoBehaviour
     {
         // 音データの再生装置を格納する
-        private new AudioSource audio;
+        [SerializeField] private AudioSource seAudioSource;
+        [SerializeField] private AudioSource bgmAudioSource;
 
         // 音データを格納する
   //      [SerializeField] private AudioClip step;      //足音
@@ -23,15 +22,18 @@ namespace CleanCity
 
         private void Start()
         {
-            // コンポーネントから再生装置を検出する
-            audio = gameObject.AddComponent<AudioSource>();
-
             GameSystem.Singleton.onStatusChanged += (before, to) =>
             {
                 if (to == GameSystem.State.InGame)
                 {
-                    //音を鳴らす
-                    audio.PlayOneShot(ingame);
+                    bgmAudioSource.clip = ingame;
+                    bgmAudioSource.Play();
+                }
+                else if (to == GameSystem.State.Result)
+                {
+                    bgmAudioSource.Stop();
+                    bgmAudioSource.clip = result;
+                    bgmAudioSource.Play();
                 }
             };
         }
@@ -47,35 +49,35 @@ namespace CleanCity
         public void IsInPutButton()
         {
             //音を鳴らす
-            audio.PlayOneShot(button);
+            seAudioSource.PlayOneShot(button);
         }
 
         // ゴミを拾った時に再生するSE
         public void TrashPickUP()
         {
             //音を鳴らす
-            audio.PlayOneShot(pickup);
+            seAudioSource.PlayOneShot(pickup);
         }
 
         // ゴミを捨てた時に再生するSE
         public void TrashDiscard()
         {
             //音を鳴らす
-            audio.PlayOneShot(discard);
+            seAudioSource.PlayOneShot(discard);
         }
 
         // プレイヤーが衝突した時に再生するSE
         public void IsPlayerConflict()
         {
             //音を鳴らす
-            audio.PlayOneShot(conflict);
+            seAudioSource.PlayOneShot(conflict);
         }
 
         // リザルトの時につかうSE（使わない可能性もある）
         public void ResultSE()
         {
             //音を鳴らす
-            audio.PlayOneShot(result);
+            seAudioSource.PlayOneShot(result);
         }
     }
 }
