@@ -1,3 +1,5 @@
+using System;
+
 namespace CleanCity
 {
     public interface IPickGarbage
@@ -8,5 +10,7 @@ namespace CleanCity
         int GarbageAmount { get; }
         /// <summary>持っているごみをすべて削除</summary>
         void ClearGarbage();
+        /// <summary>拾った時のコールバック</summary>
+        event Action<Garbage> OnPickUpGabage;
     }
 }

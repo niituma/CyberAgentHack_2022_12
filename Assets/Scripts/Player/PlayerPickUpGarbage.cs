@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace CleanCity
 		private List<Garbage> garbages = new List<Garbage>();
 		private IPlayerStatusManager playerStatus;
 		private IScoreManager scoreManager;
+
+		public event Action<Garbage> OnPickUpGabage;
 
 		private void Start()
 		{
@@ -51,6 +54,7 @@ namespace CleanCity
 			else
 			{
 				Debug.Log("PickUp");
+				OnPickUpGabage?.Invoke(garbage);
 				garbagePlace.PickUp(garbage);
 				garbages.Add(garbage);
 				garbage.OnPickUp();
