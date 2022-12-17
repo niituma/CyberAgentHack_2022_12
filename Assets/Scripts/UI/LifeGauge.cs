@@ -35,7 +35,7 @@ namespace CleanCity_UI
                     if (!heart.gameObject.activeSelf) { continue; }
                     
                     DOTween.Sequence()
-                        .Append(transform.DOScale(new Vector3(1, 1, 1), 0))//スケールを初期化
+                        .Append(transform.DOScale(Vector3.one, 0))//スケールを初期化
                         .Append(transform.DOPunchScale(new Vector3(_panchScale, _panchScale, _panchScale), _motionTime));
                     heart.gameObject.SetActive(false);
                     break;
