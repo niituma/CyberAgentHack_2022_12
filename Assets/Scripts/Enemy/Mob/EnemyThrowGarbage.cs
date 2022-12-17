@@ -32,7 +32,7 @@ namespace CleanCity
 				if(!isTest) yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
 				yield return new WaitForSeconds(Random.Range(throwIntervalMin, throwIntervalMax));
 				Garbage garbage = garbageDatabase.CreateRandomGarbage();
-
+				garbage.transform.position = transform.position;
 				garbage.transform.DOMove(transform.position + new Vector3(Random.Range(-throwGarbageArea, throwGarbageArea), 0, Random.Range(-throwGarbageArea, throwGarbageArea)), throwTime);
 				//ランダムな向きに設定
 				garbage.transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
