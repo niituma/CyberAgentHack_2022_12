@@ -30,6 +30,7 @@ namespace CleanCity
 
 		public void Damage(int point)
 		{
+			if (GameSystem.Singleton.Status != GameSystem.State.InGame) return;
 			if (IsDead) return;
 
 			hp -= point;
