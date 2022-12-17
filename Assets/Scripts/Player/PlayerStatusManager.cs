@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CleanCity.UI;
+using System;
 using UnityEngine;
+using Utility;
 
 namespace CleanCity
 {
@@ -34,9 +36,10 @@ namespace CleanCity
 			if (IsDead) return;
 
 			hp -= point;
+            Locator<LifeGauge>.Resolve().SetDamageLifeGauge(point);
 
-			//受けたダメージが0であれば無視する
-			if (point == 0) return;
+            //受けたダメージが0であれば無視する
+            if (point == 0) return;
 
 			//コールバック
 			OnDamage?.Invoke(point);

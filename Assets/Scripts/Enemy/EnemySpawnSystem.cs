@@ -51,11 +51,18 @@ namespace CleanCity
     /// 敵のスポーン場所とゴールのペアをランダムに取得する
     /// </summary>
     /// <returns></returns>
-    private (Transform start, Transform dest) GetRandomPath()
+    private (Transform start, Transform dest)? GetRandomPath()
     {
-      var start = spawnPoints[Random.Range(0, spawnPoints.Count)];
-      var dest = exitPoints[Random.Range(0, exitPoints.Count)];
-      return (start, dest);
+      for (int i = 0; i < 100; i++)
+      {
+        var start = spawnPoints[Random.Range(0, spawnPoints.Count)];
+        var dest = exitPoints[Random.Range(0, exitPoints.Count)];
+        if (Vector3.Distance(start.position, dest.position) > 10f)
+        {
+          return (start, dest);
+        }
+      }
+      return null;
     }
 
     /// <summary>
@@ -100,7 +107,14 @@ namespace CleanCity
       }
 
       // スポーン地点とゴールを取得する
-      var (spawnPos, dest) = GetRandomPath();
+      var path = GetRandomPath();
+      if (path == null)
+      {
+        Debug.LogWarning("Failed to spawn enemy.");
+        return;
+      }
+      
+      var (spawnPos, dest) = path.Value;
       
       // 敵を生成
       var enemy = Instantiate(enemyData.prefab, spawnPos.position, Quaternion.identity);

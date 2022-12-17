@@ -2,11 +2,11 @@ namespace CleanCity
 {
     public interface IPickGarbage
     {
-        /// <summary>d‚³</summary>
+        /// <summary>é‡ã•</summary>
         float Weight { get; }
-        /// <summary>‚Á‚Ä‚¢‚é‚²‚İ‚Ì”</summary>
+        /// <summary>æŒã£ã¦ã„ã‚‹ã”ã¿ã®æ•°</summary>
         int GarbageAmount { get; }
-        /// <summary>‚Á‚Ä‚¢‚é‚²‚İ‚ğ‚·‚×‚Äíœ</summary>
+        /// <summary>æŒã£ã¦ã„ã‚‹ã”ã¿ã‚’ã™ã¹ã¦å‰Šé™¤</summary>
         void ClearGarbage();
     }
 }

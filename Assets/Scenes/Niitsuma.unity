@@ -202,6 +202,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dff05ec2bab5544a7b1f99541d3291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &470112842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3515901688101533758, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+  m_PrefabInstance: {fileID: 3515901689493838229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &520966695
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +317,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 425086279}
+        m_TargetAssemblyTypeName: CleanCity_UI.ShowScorePresenter, Assembly-CSharp
+        m_MethodName: CountShow
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -428,6 +451,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533756077}
   m_CullTransparentMesh: 1
+--- !u!114 &627412847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1164499526061535869, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+  m_PrefabInstance: {fileID: 3515901689493838229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &713356287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,6 +1098,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 425086282, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: _countText
+      value: 
+      objectReference: {fileID: 627412847}
+    - target: {fileID: 425086282, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
+      propertyPath: _scoreText
+      value: 
+      objectReference: {fileID: 470112842}
     - target: {fileID: 3515901689519763914, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: m_Pivot.x
       value: 0

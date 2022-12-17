@@ -24,14 +24,14 @@ namespace CleanCity
 
 		private void OnTriggerEnter(Collider col)
 		{
-			//ƒSƒ~‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«ƒSƒ~‚ğE‚¤
+			//ã‚´ãƒŸã«ã¶ã¤ã‹ã£ãŸã¨ãã‚´ãƒŸã‚’æ‹¾ã†
 			Garbage garbage = col.gameObject.GetComponent<Garbage>();
 			if (garbage != null)
 			{
 				PickUp(garbage);
 			}
 
-			//ƒSƒ~” ‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«ƒSƒ~‚ğƒSƒ~” ‚ÉÌ‚Ä‚é
+			//ã‚´ãƒŸç®±ã«ã¶ã¤ã‹ã£ãŸã¨ãã‚´ãƒŸã‚’ã‚´ãƒŸç®±ã«æ¨ã¦ã‚‹
 			GarbageBox garbageBox = col.gameObject.GetComponent<GarbageBox>();
 			if(garbageBox != null)
 			{
@@ -46,7 +46,7 @@ namespace CleanCity
 
 			if (playerStatus.CanHaveGarbageLimit <= garbages.Count)
 			{
-				//‚¿‚«‚ê‚È‚¢
+				//æŒã¡ãã‚Œãªã„
 			}
 			else
 			{
