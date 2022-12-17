@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CleanCity_UI;
+using System;
+using Utility;
 
 namespace CleanCity
 {
@@ -16,6 +18,7 @@ namespace CleanCity
         public void AddScore(int score)
         {
             this.score += score;
+            Locator<ShowScorePresenter>.Resolve().ScoreShow(this.score);
             OnAddScore?.Invoke((this.score, score));
 		}
     }

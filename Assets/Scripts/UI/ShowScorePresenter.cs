@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using CleanCity;
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace CleanCity_UI
         }
         void Start()
         {
-            if (_startShow) { ScoreShow(10); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
+            
+            if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
         }
 
         /// <summary>

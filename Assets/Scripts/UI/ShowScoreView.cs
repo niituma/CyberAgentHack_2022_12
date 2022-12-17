@@ -19,6 +19,7 @@ public class ShowScoreView : MonoBehaviour
                     _text.text = $"Score:{_tempCurrentValue}";
                 },
                 value, time);
-        transform.DOShakeScale(duration: time, strength: 0.3f);
+        
+        transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() =>transform.localScale = Vector3.one);
     }
 }
