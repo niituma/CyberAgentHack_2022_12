@@ -53,7 +53,6 @@ namespace CleanCity
 			}
 			else
 			{
-				Debug.Log("PickUp");
 				OnPickUpGabage?.Invoke(garbage);
 				garbagePlace.PickUp(garbage);
 				garbages.Add(garbage);

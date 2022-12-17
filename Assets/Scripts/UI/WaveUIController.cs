@@ -35,12 +35,10 @@ public class WaveUIController : MonoBehaviour
 
     Tween SetWaveUI(int num)
     {
-        _waveText.text = $"WAVE : {num}";
+        _waveText.text = $"WAVE:{num}";
         transform.localScale = Vector3.zero;
         GetComponent<CanvasGroup>().alpha = 0;
         return DOTween.Sequence().Append(transform.DOScale(1f, 1f).SetEase(Ease.InQuad))
-                                 .Join(_canvasGroup.DOFade(1, 1.5f))
-                                 .AppendInterval(1.5f)
-                                 .Join(_canvasGroup.DOFade(0, 1.5f));
+                                 .Join(_canvasGroup.DOFade(1, 1.5f));
     }
 }

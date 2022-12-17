@@ -14,9 +14,20 @@ namespace CleanCity.UI
 
         void Start()
         {
+            Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
+            {
+                _model.Count = 0;
+            };
+
             Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
             {
-               ScoreShow(value.nowScore);
+                ScoreShow(value.nowScore);
+            };
+
+            FindObjectOfType<PlayerPickUpGarbage>().OnPickUpGabage += (Garbage) =>
+            {
+                _model.Count++;
+                CountShow(_model.Count / Locator<IQuota>.Resolve().GetNextQuoa(Locator<IWaveSystem>.Resolve().GetWave));
             };
 
             if (GameSystem.Singleton)

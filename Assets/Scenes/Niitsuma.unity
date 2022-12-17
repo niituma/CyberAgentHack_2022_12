@@ -340,7 +340,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.1
+          m_FloatArgument: 0.005
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -474,17 +474,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533756077}
   m_CullTransparentMesh: 1
---- !u!114 &627412847 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1164499526061535869, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
-  m_PrefabInstance: {fileID: 3515901689493838229}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &713356287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: 425086282, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: _countText
       value: 
-      objectReference: {fileID: 627412847}
+      objectReference: {fileID: 0}
     - target: {fileID: 425086282, guid: 930b997bfe28d8b4d97c52e99c052e26, type: 3}
       propertyPath: _scoreText
       value: 
