@@ -14,6 +14,7 @@ namespace CleanCity
             Locator<IDamageable>.Register(playerStatusManager);
             Locator<IDeadable>.Register(playerStatusManager);
             Locator<IGarbageDatabase>.Register(garbageDatabase);
+            Locator<IScoreManager>.Register(new ScoreManager());
         }
     }
 }

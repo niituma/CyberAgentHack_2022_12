@@ -9,7 +9,8 @@ namespace CleanCity
 	{
 		[SerializeField] private float throwIntervalMin = 0.1f;
 		[SerializeField] private float throwIntervalMax = 1.5f;
-
+		[SerializeField] private bool isTest = false;
+		 
 		private IGarbageDatabase garbageDatabase;
 
 		private void Start()
@@ -23,7 +24,7 @@ namespace CleanCity
 		{	
 			while(true)
 			{
-				yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
+				if(!isTest) yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
 				yield return new WaitForSeconds(Random.Range(throwIntervalMin, throwIntervalMax));
 				Garbage garbage = garbageDatabase.CreateRandomGarbage();
 
