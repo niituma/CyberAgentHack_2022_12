@@ -282,7 +282,6 @@ MonoBehaviour:
   title: {fileID: 8300000, guid: bbc96dcbd1b856b478a81281959cb9a7, type: 3}
   ingame: {fileID: 8300000, guid: b2ccfa1615bb83445a806f7445b0129f, type: 3}
   result: {fileID: 8300000, guid: be01893975722cc43a4e03c6a84338bb, type: 3}
-  state: 2
 --- !u!1 &1891576859
 GameObject:
   m_ObjectHideFlags: 0
