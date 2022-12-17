@@ -28,8 +28,7 @@ namespace CleanCity.UI
             Locator<IScoreManager>.Resolve().OnAddClearedGarbage += (num) =>
             {
                 var quota = (float)Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave);
-                Debug.Log(Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave));
-                if(_model.Count + 1 > quota) { return; }
+                if(_model.Count > quota) { return; }
                 _model.Count++;
                 CountShow(_model.Count / quota);
             };
