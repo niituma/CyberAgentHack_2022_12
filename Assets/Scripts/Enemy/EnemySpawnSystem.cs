@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Utility;
+using Random = UnityEngine.Random;
 
 namespace CleanCity
 {
@@ -14,6 +17,19 @@ namespace CleanCity
     private float spawnTimeSpan = 1.5f;
     private List<GameObject> enemies = new List<GameObject>();
     private float timeLeft = 0;
+
+    private void Start()
+    {
+      var waveSystem = Locator<IWaveSystem>.Resolve();
+      waveSystem.OnAddWave += OnAddWave;
+    }
+
+    private void OnAddWave(int wave)
+    { 
+      var quota = Locator<IQuota>.Resolve();
+      maxEnemyCount = quota.GetNextMaxSpawnCount(wave);
+      spawnTimeSpan = quota.GetNextSpawnTimeSpan(wave);
+    }
 
     private void Update()
     {
