@@ -11,7 +11,7 @@ namespace CleanCity
         private new AudioSource audio;
 
         // 音データを格納する
-        [SerializeField] private AudioClip step;        //足音
+  //      [SerializeField] private AudioClip step;      //足音
         [SerializeField] private AudioClip button;      //ボタン
         [SerializeField] private AudioClip pickup;      //拾う
         [SerializeField] private AudioClip discard;     //捨てる
@@ -25,12 +25,12 @@ namespace CleanCity
             audio = gameObject.AddComponent<AudioSource>();
         }
 
-        // 足音のSE
-        public void StepSE()
-        {
-            //音を鳴らす
-            audio.PlayOneShot(step);
-        }
+        //// 足音のSE
+        //public void StepSE()
+        //{
+        //    //音を鳴らす
+        //    audio.PlayOneShot(step);
+        //}
 
         // ボタンを押したときに再生するSE
         public void IsInPutButton()
