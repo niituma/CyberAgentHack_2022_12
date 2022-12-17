@@ -4093,7 +4093,7 @@ MonoBehaviour:
   conflict: {fileID: 8300000, guid: 3693ae4018f6c274b84031544553a3df, type: 3}
   title: {fileID: 8300000, guid: bbc96dcbd1b856b478a81281959cb9a7, type: 3}
   ingame: {fileID: 8300000, guid: b2ccfa1615bb83445a806f7445b0129f, type: 3}
-  result: {fileID: 8300000, guid: be01893975722cc43a4e03c6a84338bb, type: 3}
+  result: {fileID: 8300000, guid: 72693fd5c34228f4c802d6a520a1785f, type: 3}
 --- !u!4 &1578932688
 Transform:
   m_ObjectHideFlags: 0
