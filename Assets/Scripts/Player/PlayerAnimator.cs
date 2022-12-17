@@ -23,5 +23,11 @@ namespace CleanCity
         {
             animator.SetTrigger("Damage");
         }
+
+        /// <summary>死んだ時のアニメーション</summary>
+        public void Dead()
+        {
+            animator.SetTrigger("Dead");
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace CleanCity
 		[SerializeField] private int baseSpeed;
 		/// <summary>所持制限</summary>
 		[SerializeField] private int canHaveGarbageLimit = 10;
+		
+		[SerializeField] private bool isTest = false;
 
 		public int MaxHp => maxHp;
 		public int Hp => hp;
@@ -24,7 +26,6 @@ namespace CleanCity
 
 		public bool IsDead { get; private set; } = false;
 
-
 		/// <summary>ダメージを受けた時のコールバック</summary>
 		public event Action<int> OnDamage;
 		/// <summary>死亡したときのコールバック</summary>
@@ -32,7 +33,7 @@ namespace CleanCity
 
 		public void Damage(int point)
 		{
-			if (GameSystem.Singleton.Status != GameSystem.State.InGame) return;
+			if(!isTest) if (GameSystem.Singleton.Status != GameSystem.State.InGame) return;
 			if (IsDead) return;
 
 			hp -= point;
