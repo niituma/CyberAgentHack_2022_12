@@ -8,5 +8,7 @@ namespace CleanCity
         void EndMove();
         /// <summary>ダメージを受けた時のアニメーション</summary>
         void Damage();
+        /// <summary>死んだ時のアニメーション</summary>
+        void Dead();
     }
 }
