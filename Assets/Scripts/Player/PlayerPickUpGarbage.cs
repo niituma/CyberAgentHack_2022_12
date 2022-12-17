@@ -1,0 +1,64 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Utility;
+
+namespace CleanCity
+{
+	public class PlayerPickUpGarbage : MonoBehaviour, IPickGarbage
+	{
+		[SerializeField] private GarbagePlace garbagePlace;
+
+		public float Weight => (int)garbages.Sum(x => x.Weight);
+		public int GarbageAmount => garbages.Count;
+
+		private List<Garbage> garbages = new List<Garbage>();
+		private IPlayerStatusManager playerStatus;
+
+		private void Start()
+		{
+			playerStatus = Locator<IPlayerStatusManager>.Resolve();
+		}
+
+		private void OnTriggerEnter(Collider col)
+		{
+			//ƒSƒ~‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«ƒSƒ~‚ğE‚¤
+			Garbage garbage = col.gameObject.GetComponent<Garbage>();
+			if (garbage != null)
+			{
+				PickUp(garbage);
+			}
+
+			//ƒSƒ~” ‚É‚Ô‚Â‚©‚Á‚½‚Æ‚«ƒSƒ~‚ğƒSƒ~” ‚ÉÌ‚Ä‚é
+			GarbageBox garbageBox = col.gameObject.GetComponent<GarbageBox>();
+			if(garbageBox != null)
+			{
+				garbageBox.Clear(garbages);
+				ClearGarbage();
+			}
+		}
+
+		public void PickUp(Garbage garbage)
+		{
+			if (garbage.IsPickedUp) return;
+
+			if (playerStatus.CanHaveGarbageLimit <= garbages.Count)
+			{
+				//‚¿‚«‚ê‚È‚¢
+			}
+			else
+			{
+				Debug.Log("PickUp");
+				garbagePlace.PickUp(garbage);
+				garbages.Add(garbage);
+				garbage.OnPickUp();
+			}
+		}
+
+		public void ClearGarbage()
+		{
+			garbagePlace.Clear();
+			garbages.Clear();
+		}
+	}
+}

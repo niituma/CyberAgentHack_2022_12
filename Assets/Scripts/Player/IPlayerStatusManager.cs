@@ -12,6 +12,8 @@ namespace CleanCity
         /// <summary>基本速度</summary>
         int BaseSpeed { get; }
         /// <summary>プレイヤーの位置</summary>
+        int CanHaveGarbageLimit { get; }
+        /// <summary>プレイヤーの位置</summary>
         Vector3 GetPosition { get; }
     }
 }

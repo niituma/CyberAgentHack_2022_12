@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9117249377300341108}
   - component: {fileID: 9117249377300341109}
+  - component: {fileID: 4738089800869994352}
   - component: {fileID: 9117249377300341111}
   - component: {fileID: 244568578042072600}
-  - component: {fileID: 4738089800869994352}
+  - component: {fileID: 8144215652004549039}
   m_Layer: 0
   m_Name: HumanEnemyBase
   m_TagString: Untagged
@@ -51,6 +52,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 1
+--- !u!136 &4738089800869994352
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117249377300341110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &9117249377300341111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,17 +92,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePoint: 1
---- !u!136 &4738089800869994352
-CapsuleCollider:
+--- !u!114 &8144215652004549039
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9117249377300341110}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62740f634f6e89409fd6743701f2abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwInterval: 1.5

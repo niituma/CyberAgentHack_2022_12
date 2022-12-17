@@ -61,6 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9117249377300341111, guid: 4dc0468d122d9d740b0b79f94af40c17, type: 3}
+    - {fileID: 8144215652004549039, guid: 4dc0468d122d9d740b0b79f94af40c17, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4dc0468d122d9d740b0b79f94af40c17, type: 3}
 --- !u!4 &7186368370227774957 stripped
 Transform:
@@ -84,7 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7982f1282da1764aa340ff9377fa075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 800
+  moveSpeed: 20
+  lifeTime: 10
 --- !u!1001 &6413643944449326630
 PrefabInstance:
   m_ObjectHideFlags: 0
