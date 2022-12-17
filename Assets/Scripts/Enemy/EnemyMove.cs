@@ -5,7 +5,8 @@ namespace CleanCity
 	public class EnemyMove : MonoBehaviour, ISetEnemyMoveDir
 	{
 		[SerializeField] private float speed = 100;
-		
+		[SerializeField] private float destroyArea = 0.5f;
+
 		private Rigidbody rb;
 		private Vector3 movePosition;
 
@@ -25,7 +26,7 @@ namespace CleanCity
 			Vector3 moveDir = (movePosition - transform.position).normalized;
 			rb.velocity = moveDir * speed;
 			transform.rotation = Quaternion.LookRotation(new Vector3(moveDir.x, 0, moveDir.z));
-			if (Vector3.Distance(transform.position, movePosition) < 5)
+			if (Vector3.Distance(transform.position, movePosition) < destroyArea)
 			{
 				Destroy(gameObject);
 			}
