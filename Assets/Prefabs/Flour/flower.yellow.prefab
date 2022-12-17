@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865001250010936020}
   m_Layer: 0
-  m_Name: flour.yellow
+  m_Name: flower.yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344887910872115310}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.636571, y: 0.5000005, z: -0.6196368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -93,7 +93,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8469494145858465668, guid: ae3a14ec433e2a044b5810396dfcdcde, type: 3}
+  - {fileID: 2100000, guid: e94a959873396ec47bf1b93293b0abe8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
