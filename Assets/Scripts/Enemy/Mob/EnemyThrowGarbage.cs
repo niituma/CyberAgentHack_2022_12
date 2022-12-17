@@ -19,9 +19,10 @@ namespace CleanCity
 
 		///<summary>ゴミをインターバル毎に生成する</summary>
 		private IEnumerator CreateGarbage()
-		{
+		{	
 			while(true)
 			{
+				yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
 				yield return new WaitForSeconds(throwInterval);
 				Garbage garbage = garbageDatabase.CreateRandomGarbage();
 
