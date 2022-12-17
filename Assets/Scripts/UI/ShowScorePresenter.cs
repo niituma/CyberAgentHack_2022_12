@@ -17,6 +17,7 @@ namespace CleanCity.UI
             Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
             {
                 _model.Count = 0;
+                CountShow(0);
             };
 
             Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
@@ -24,10 +25,13 @@ namespace CleanCity.UI
                 ScoreShow(value.nowScore);
             };
 
-            FindObjectOfType<PlayerPickUpGarbage>().OnPickUpGabage += (Garbage) =>
+            Locator<IScoreManager>.Resolve().OnAddClearedGarbage += (num) =>
             {
+                var quota = (float)Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave);
+                Debug.Log(Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave));
+                if(_model.Count + 1 > quota) { return; }
                 _model.Count++;
-                CountShow(_model.Count / Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave));
+                CountShow(_model.Count / quota);
             };
 
             if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
@@ -46,9 +50,7 @@ namespace CleanCity.UI
 
         public void CountShow(float value)
         {
-            _model.SetCountValue(value);
-            _model.CurrentCountChanged.
-            First().Subscribe(value => _view.SetCountText(value, _time));
+            _view.SetCountText(value, 0.4f);
         }
     }
 }

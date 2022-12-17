@@ -17,7 +17,12 @@ public class ShowScoreView : MonoBehaviour
     int _scoreCurrentValue;
     bool _scoreAnim;
     Tween _countAnim;
-    
+
+    public void ResetSlider()
+    {
+        SetCountText(0, 0.2f);
+    }
+
     public void SetScoreText(int value, float time)
     {
         DOTween.To(() => _scoreCurrentValue,
@@ -26,8 +31,7 @@ public class ShowScoreView : MonoBehaviour
                     // 背景バーはアニメーションで更新
                     _scoreCurrentValue = value;
                     _scoreText.text = $"SCORE:{_scoreCurrentValue}";
-                },
-                value, time);
+                },value, time);
         if (!_scoreAnim) { _scoreText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _scoreAnim = false); }
 
         _scoreAnim = true;
