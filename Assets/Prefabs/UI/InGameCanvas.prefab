@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3515901688101533753}
   - component: {fileID: 3515901688101533758}
   - component: {fileID: 1166812643}
+  - component: {fileID: 425086282}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -148,9 +149,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dff05ec2bab5544a7b1f99541d3291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _view: {fileID: 425086282}
   _time: 5
-  _text: {fileID: 3515901688101533758}
   _startShow: 0
+--- !u!114 &425086282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515901688101533756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b02bbfa2b30de43a39bb8d1466bc43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 3515901688101533758}
 --- !u!1 &3515901689155469086
 GameObject:
   m_ObjectHideFlags: 0
