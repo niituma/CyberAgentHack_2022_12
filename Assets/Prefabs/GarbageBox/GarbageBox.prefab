@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 9158749052808833262}
   - component: {fileID: 9158749052808833263}
   - component: {fileID: 9158749052808833260}
-  - component: {fileID: 9158749052808833249}
+  - component: {fileID: 5640804649695437993}
+  - component: {fileID: 6796946835367342790}
   m_Layer: 0
   m_Name: GarbageBox
   m_TagString: Untagged
@@ -73,8 +74,8 @@ MonoBehaviour:
   garbagePosition: {fileID: 9158749053855140724}
   moveTime: 0.5
   capacity: 10
---- !u!65 &9158749052808833249
-BoxCollider:
+--- !u!136 &5640804649695437993
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,8 +84,23 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 3, z: 4}
+  m_Radius: 3
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!136 &6796946835367342790
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158749052808833261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1 &9158749053855140725
 GameObject:
