@@ -7,6 +7,7 @@ namespace CleanCity
     {
         [SerializeField] private PlayerStatusManager playerStatusManager;
         [SerializeField] private GarbageDatabase garbageDatabase;
+        [SerializeField] private SoundBank soundBank;
 
         private void Awake()
         {
@@ -15,6 +16,7 @@ namespace CleanCity
             Locator<IDeadable>.Register(playerStatusManager);
             Locator<IGarbageDatabase>.Register(garbageDatabase);
             Locator<IScoreManager>.Register(new ScoreManager());
+            Locator<SoundBank>.Register(soundBank);
         }
     }
 }

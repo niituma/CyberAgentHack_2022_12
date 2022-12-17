@@ -54,6 +54,7 @@ namespace CleanCity
 				garbagePlace.PickUp(garbage);
 				garbages.Add(garbage);
 				garbage.OnPickUp();
+				Locator<SoundBank>.Resolve().TrashPickUP();
 			}
 		}
 
@@ -62,6 +63,7 @@ namespace CleanCity
 			foreach (Garbage garbage in garbages) scoreManager.AddScore(garbage.Score);
 			garbagePlace.Clear();
 			garbages.Clear();
+			Locator<SoundBank>.Resolve().TrashDiscard();
 		}
 	}
 }
