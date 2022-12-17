@@ -35,9 +35,16 @@ namespace CleanCity_UI
         /// <param name="value"></param>
         public void ScoreShow(int value)
         {
-            _model.SetValue(value);
-            _model.CurrentChanged.
+            _model.SetScoreValue(value);
+            _model.CurrentScoreChanged.
             First().Subscribe(value => _view.SetScoreText(value, _time));
+        }
+
+        public void CountShow(int value)
+        {
+            _model.SetCountValue(value);
+            _model.CurrentCountChanged.
+            First().Subscribe(value => _view.SetCountText(value, _time));
         }
     }
 }
