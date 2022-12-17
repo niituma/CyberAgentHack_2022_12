@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: b6da21fd5435375438e5aafdef93ffe3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - button: {fileID: 8300000, guid: a89a2d9f1b6d25c4baa59fe793fef29f, type: 3}
+  - pickup: {fileID: 8300000, guid: c01b9826a64f3464a9209cd6001a0162, type: 3}
+  - discard: {fileID: 8300000, guid: 46a1dac10d0e3484d8fb79c41cb9ada3, type: 3}
+  - conflict: {fileID: 8300000, guid: 3693ae4018f6c274b84031544553a3df, type: 3}
+  - title: {fileID: 8300000, guid: bbc96dcbd1b856b478a81281959cb9a7, type: 3}
+  - ingame: {fileID: 8300000, guid: b2ccfa1615bb83445a806f7445b0129f, type: 3}
+  - result: {fileID: 8300000, guid: be01893975722cc43a4e03c6a84338bb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
