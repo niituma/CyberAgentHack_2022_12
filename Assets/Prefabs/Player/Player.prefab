@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3419633c1e9324d46b0bb53e797db17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  putGarbageAnimationTime: 0.1
 --- !u!1 &8888563484558632562
 GameObject:
   m_ObjectHideFlags: 0

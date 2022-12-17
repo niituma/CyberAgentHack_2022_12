@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace CleanCity
 {
     public class GarbagePlace : MonoBehaviour
     {
+        [SerializeField] private float putGarbageAnimationTime = 0.5f;
         private List<Garbage> garbages = new List<Garbage>();
         
         /// <summary>拾ったごみを頭にのせる</summary>
@@ -18,7 +20,7 @@ namespace CleanCity
             }
             garbages.Add(garbage);
             garbage.transform.SetParent(transform);
-            garbage.transform.localPosition = new Vector3(0, height, 0);
+            garbage.transform.DOLocalMove(new Vector3(0, height, 0), putGarbageAnimationTime);
 		}
 
         public void Clear()
