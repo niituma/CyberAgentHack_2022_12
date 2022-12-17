@@ -7,14 +7,14 @@ using UnityEngine;
 public class ShowScoreView : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _text;
-    // アニメーション時に使用する一時的な現在値
+    // 繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ譎ゅ↓菴ｿ逕ｨ縺吶ｋ荳譎ら噪縺ｪ迴ｾ蝨ｨ蛟､
     int _tempCurrentValue;
     public void SetScoreText(int value, float time)
     {
         DOTween.To(() => _tempCurrentValue,
                 value =>
                 {
-                    // 背景バーはアニメーションで更新
+                    // 閭梧勹繝舌�ｼ縺ｯ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｧ譖ｴ譁ｰ
                     _tempCurrentValue = value;
                     _text.text = $"Score:{_tempCurrentValue}";
                 },

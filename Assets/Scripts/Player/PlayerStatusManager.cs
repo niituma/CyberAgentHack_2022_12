@@ -1,5 +1,4 @@
 ﻿using CleanCity.UI;
-using CleanCity_UI;
 using System;
 using UnityEngine;
 using Utility;

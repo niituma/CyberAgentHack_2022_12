@@ -1,5 +1,5 @@
-﻿using CleanCity_UI;
-using System;
+﻿using System;
+using CleanCity.UI;
 using Utility;
 
 namespace CleanCity
