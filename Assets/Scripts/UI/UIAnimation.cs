@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class UIAnimation : MonoBehaviour
 {
+    Tween _tween;
     public void OpenWindow()
     {
+        if (_tween is not null) { _tween.Kill(); }
         transform.localScale = Vector3.zero;
-        WindowAnim(1, 1, Ease.OutBounce, true);
+        _tween = WindowAnim(1, 1, Ease.OutBounce, true);
+        _tween.Play();
     }
     public void ClozeWindow()
     {
+        if (_tween is not null) { _tween.Kill(); }
         transform.localScale = Vector3.one;
-        WindowAnim(0, 0.5f, Ease.Unset, false);
+        _tween = WindowAnim(0, 0.5f, Ease.Unset, false);
+        _tween.Play();
     }
 
-    void WindowAnim(float xsize, float _time, Ease ease, bool active)
+    Tween WindowAnim(float xsize, float _time, Ease ease, bool active)
     {
-        transform.DOScale(xsize, _time).SetEase(ease).OnComplete(() => { if (!active) { this.gameObject.SetActive(false); } });
+        return transform.DOScale(xsize, _time).SetEase(ease).OnComplete(() => { if (!active) { this.gameObject.SetActive(false); } });
     }
 }

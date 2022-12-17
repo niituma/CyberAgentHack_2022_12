@@ -26,8 +26,8 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (GameSystem.Singleton.Status != GameSystem.State.InGame 
-            || GameSystem.Singleton.Status == GameSystem.State.Result) { return; }
+        if (GameSystem.Singleton?.Status != GameSystem.State.InGame 
+            || GameSystem.Singleton?.Status == GameSystem.State.Result) { return; }
 
         if (_countdownSeconds <= 0) 
         { 
