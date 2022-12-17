@@ -1,20 +1,27 @@
+using CleanCity;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Utility;
 
 public class ShowScoreView : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     TextMeshProUGUI _scoreText;
     [SerializeField]
-    TextMeshProUGUI _countText;
+    Slider _quotaSlider;
     // アニメーション時に使用する一時的な現在値
     int _scoreCurrentValue;
-    int _countCurrentValue;
     bool _scoreAnim;
-    bool _countAnim;
+    Tween _countAnim;
+    public void SetQuota()
+    {
+        //_quotaText.text = $"ノルマ:{Locator<IQuota>.Resolve().GetNextQuoa(Locator<IWaveSystem>.Resolve().GetWave)}";
+    }
+
     public void SetScoreText(int value, float time)
     {
         DOTween.To(() => _scoreCurrentValue,
@@ -30,18 +37,9 @@ public class ShowScoreView : MonoBehaviour
         _scoreAnim = true;
     }
 
-    public void SetCountText(int value, float time)
+    public void SetCountText(float value, float time)
     {
-        DOTween.To(() => _countCurrentValue,
-                value =>
-                {
-                    // 背景バーはアニメーションで更新
-                    _countCurrentValue = value;
-                    _countText.text = $"COUNT:{_countCurrentValue}";
-                },
-                value, time);
-        if (!_countAnim) { _countText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _countAnim = false); }
-
-        _countAnim = true;
+        if (_countAnim is not null) { _countAnim.Kill(); }
+        _countAnim = DOTween.To(() => _quotaSlider.value, x => _quotaSlider.value = x, value, time);
     }
 }

@@ -24,6 +24,14 @@ public class Timer : MonoBehaviour
         _countdownSeconds = _countdownMinutes * 60;
     }
 
+    private void Start()
+    {
+        Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
+        {
+            _countdownSeconds = _countdownMinutes * 60;
+        };
+    }
+
     void Update()
     {
         if (GameSystem.Singleton?.Status != GameSystem.State.InGame 

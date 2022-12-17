@@ -16,13 +16,16 @@ public class WaveUIController : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 0f;
-        GameSystem.Singleton.onStatusChanged += (before, to) =>
+        if (GameSystem.Singleton)
         {
-            if (to == GameSystem.State.InGame)
-            {
-                SetAnimUI(Locator<IWaveSystem>.Resolve().GetWave);
-            }
-        }; 
+            GameSystem.Singleton.onStatusChanged += (before, to) =>
+                   {
+                       if (to == GameSystem.State.InGame)
+                       {
+                           SetAnimUI(Locator<IWaveSystem>.Resolve().GetWave);
+                       }
+                   };
+        }
     }
 
     public void SetAnimUI(int num)

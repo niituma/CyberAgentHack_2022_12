@@ -15,9 +15,21 @@ namespace CleanCity.UI
         void Start()
         {
             Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
-           {
+            {
                ScoreShow(value.nowScore);
-           };
+            };
+
+            if (GameSystem.Singleton)
+            {
+                GameSystem.Singleton.onStatusChanged += (before, to) =>
+                {
+                    if (to == GameSystem.State.InGame)
+                    {
+                        _view.SetQuota();
+                    }
+                };
+            }
+
             if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
         }
 
@@ -32,7 +44,7 @@ namespace CleanCity.UI
             First().Subscribe(value => _view.SetScoreText(value, _time));
         }
 
-        public void CountShow(int value)
+        public void CountShow(float value)
         {
             _model.SetCountValue(value);
             _model.CurrentCountChanged.
