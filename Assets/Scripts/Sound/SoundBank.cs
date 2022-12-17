@@ -26,7 +26,7 @@ namespace CleanCity
             // コンポーネントから再生装置を検出する
             audio = gameObject.AddComponent<AudioSource>();
 
-            GameSystem.Singleton.onStatusChanged += async (before, to) =>
+            GameSystem.Singleton.onStatusChanged += (before, to) =>
             {
                 if (to == GameSystem.State.InGame)
                 {
