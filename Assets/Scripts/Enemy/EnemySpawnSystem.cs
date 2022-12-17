@@ -11,8 +11,9 @@ namespace CleanCity
     [SerializeField] private List<Transform> exitPoints;
 
     private int maxEnemyCount = 5;
-    private float spawnTimeSpan = 3;
+    private float spawnTimeSpan = 1.5f;
     private List<GameObject> enemies = new List<GameObject>();
+    private float timeLeft = 0;
 
     private void Update()
     {
@@ -22,13 +23,13 @@ namespace CleanCity
       }
       
       // 時間を更新
-      spawnTimeSpan -= Time.deltaTime;
+      timeLeft -= Time.deltaTime;
       
       // 時間が0以下なら敵をスポーンする
-      if (spawnTimeSpan <= 0)
+      if (timeLeft <= 0)
       {
         SpawnEnemy();
-        spawnTimeSpan = GetNextTimeSpan();
+        timeLeft = GetNextTimeSpan();
       }
     }
     
