@@ -11,13 +11,17 @@ namespace CleanCity
 		[SerializeField] private int hp;
 		/// <summary>基本速度</summary>
 		[SerializeField] private int baseSpeed;
+		/// <summary>所持制限</summary>
+		[SerializeField] private int numberOfPossessions;
 
 		public int MaxHp => maxHp;
 		public int Hp => hp;
 		public int BaseSpeed => baseSpeed;
+		public int CanHaveGarbageAmount => numberOfPossessions;
 		public Vector3 GetPosition => transform.position;
 
 		public bool IsDead { get; private set; } = false;
+
 
 		/// <summary>ダメージを受けた時のコールバック</summary>
 		public event Action<int> OnDamage;
