@@ -4087,6 +4087,8 @@ MonoBehaviour:
   pickup: {fileID: 8300000, guid: c01b9826a64f3464a9209cd6001a0162, type: 3}
   discard: {fileID: 8300000, guid: 46a1dac10d0e3484d8fb79c41cb9ada3, type: 3}
   conflict: {fileID: 8300000, guid: 3693ae4018f6c274b84031544553a3df, type: 3}
+  title: {fileID: 0}
+  ingame: {fileID: 0}
   result: {fileID: 0}
 --- !u!4 &1578932688
 Transform:
