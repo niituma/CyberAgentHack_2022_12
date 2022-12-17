@@ -23,7 +23,7 @@ namespace CleanCity
 
         private void CheckAddWave(int clearedGarbageCount)
         {
-            if(clearedGarbageCount >= quota.GetNextQuoa(wave))
+            if(clearedGarbageCount >= quota.GetNextQuota(wave))
             {
                 wave++;
                 OnAddWave?.Invoke(wave);
