@@ -14,10 +14,12 @@ namespace CleanCity
 
 		private List<Garbage> garbages = new List<Garbage>();
 		private IPlayerStatusManager playerStatus;
+		private IScoreManager scoreManager;
 
 		private void Start()
 		{
 			playerStatus = Locator<IPlayerStatusManager>.Resolve();
+			scoreManager = Locator<IScoreManager>.Resolve();
 		}
 
 		private void OnTriggerEnter(Collider col)
@@ -57,6 +59,7 @@ namespace CleanCity
 
 		public void ClearGarbage()
 		{
+			foreach (Garbage garbage in garbages) scoreManager.AddScore(garbage.Score);
 			garbagePlace.Clear();
 			garbages.Clear();
 		}
