@@ -11,7 +11,7 @@ namespace CleanCity
 
 		/// <summary>ダメージを受けた時のコールバック</summary>
 		event Action<int> OnDamage;
-		/// <summary>ダメージを受けた時のコールバック</summary>
+		/// <summary>回復した時のコールバック</summary>
 		event Action OnHeal;
 	}
 }
