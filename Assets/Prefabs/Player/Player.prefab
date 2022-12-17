@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 8888563484558632589}
   - component: {fileID: 8629254596079393729}
   - component: {fileID: 5698045652425711234}
+  - component: {fileID: 3537999243159727282}
   - component: {fileID: 5536406541959072267}
   m_Layer: 0
   m_Name: Player
@@ -140,7 +141,7 @@ MonoBehaviour:
   maxHp: 3
   hp: 3
   baseSpeed: 10
-  numberOfPossessions: 10
+  canHaveGarbageLimit: 10
 --- !u!114 &8629254596079393729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &3537999243159727282
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888563484558632562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5536406541959072267
 MonoBehaviour:
   m_ObjectHideFlags: 0
