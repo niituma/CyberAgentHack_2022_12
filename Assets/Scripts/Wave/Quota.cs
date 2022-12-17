@@ -1,8 +1,8 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 namespace CleanCity
 {
-	//ƒmƒ‹ƒ}
+	//ãƒŽãƒ«ãƒž
 	[CreateAssetMenu(menuName = "CleanCity/Quota", fileName = "Quota")]
 	public class Quota : ScriptableObject, IQuota
 	{
