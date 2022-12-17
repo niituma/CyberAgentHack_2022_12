@@ -42,7 +42,7 @@ namespace CleanCity
 		{
 			if (garbage.IsPickedUp) return;
 
-			if (playerStatus.CanHaveGarbageAmount <= garbages.Count)
+			if (playerStatus.CanHaveGarbageLimit <= garbages.Count)
 			{
 				//Ž‚¿‚«‚ê‚È‚¢
 			}

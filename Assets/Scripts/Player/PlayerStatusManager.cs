@@ -12,12 +12,12 @@ namespace CleanCity
 		/// <summary>基本速度</summary>
 		[SerializeField] private int baseSpeed;
 		/// <summary>所持制限</summary>
-		[SerializeField] private int numberOfPossessions;
+		[SerializeField] private int canHaveGarbageLimit = 10;
 
 		public int MaxHp => maxHp;
 		public int Hp => hp;
 		public int BaseSpeed => baseSpeed;
-		public int CanHaveGarbageAmount => numberOfPossessions;
+		public int CanHaveGarbageLimit => canHaveGarbageLimit;
 		public Vector3 GetPosition => transform.position;
 
 		public bool IsDead { get; private set; } = false;
