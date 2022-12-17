@@ -28,6 +28,8 @@ namespace CleanCity
 
 		/// <summary>ダメージを受けた時のコールバック</summary>
 		public event Action<int> OnDamage;
+		/// <summary>回復したときのコールバック</summary>
+		public event Action OnHeal;
 		/// <summary>死亡したときのコールバック</summary>
 		public event Action OnDead;
 
@@ -51,6 +53,16 @@ namespace CleanCity
 			{
 				Dead();
 			}
+		}
+
+		public void Heal()
+		{
+			if (!isTest) if (GameSystem.Singleton.Status != GameSystem.State.InGame) return;
+			if (IsDead) return;
+			if (hp == maxHp) return;
+
+			hp++;
+			OnHeal?.Invoke();
 		}
 
 		public void Dead()
