@@ -54,12 +54,12 @@ namespace CleanCity
 				garbagePlace.PickUp(garbage);
 				garbages.Add(garbage);
 				garbage.OnPickUp();
-				scoreManager.AddScore(garbage.Score);
 			}
 		}
 
 		public void ClearGarbage()
 		{
+			foreach (Garbage garbage in garbages) scoreManager.AddScore(garbage.Score);
 			garbagePlace.Clear();
 			garbages.Clear();
 		}
