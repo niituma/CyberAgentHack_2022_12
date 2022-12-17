@@ -1,3 +1,4 @@
+using CleanCity;
 using CleanCity.UI;
 using System;
 using System.Collections;
@@ -25,7 +26,14 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (_countdownSeconds <= 0) { return; }
+        if (GameSystem.Singleton.Status != GameSystem.State.InGame 
+            || GameSystem.Singleton.Status == GameSystem.State.Result) { return; }
+
+        if (_countdownSeconds <= 0) 
+        { 
+            FindObjectOfType<PlayerStatusManager>()?.Dead();
+            return;
+        }
 
         _countdownSeconds -= Time.deltaTime;
         var span = new TimeSpan(0, 0, (int)_countdownSeconds);

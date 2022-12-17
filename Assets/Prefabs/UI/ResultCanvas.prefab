@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b02bbfa2b30de43a39bb8d1466bc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreText: {fileID: 1889539901109991391}
+  _countText: {fileID: 0}
   _text: {fileID: 1889539901109991391}
 --- !u!114 &1889539901109991391
 MonoBehaviour:
