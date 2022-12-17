@@ -10,12 +10,14 @@ namespace CleanCity
 		private IPlayerStatusManager statusManager;
 		private IPlayerAnimator animator;
 		private IDeadable deadable;
+		private IPickGarbage pickGarbage;
 
 		private void Start()
 		{
 			rb = GetComponent<Rigidbody>();
 			statusManager = GetComponent<IPlayerStatusManager>();
 			animator = GetComponent<IPlayerAnimator>();
+			pickGarbage = GetComponent<IPickGarbage>();
 
 			//死亡時、動けなくする
 			deadable = GetComponent<IDeadable>();
@@ -33,7 +35,10 @@ namespace CleanCity
 		private void Move(Vector3 dir)
 		{
 			dir = new Vector3(dir.x, 0, dir.z);
-			rb.velocity = dir * statusManager.BaseSpeed;
+
+			//float weightSpeed = Mathf.Max((10.0f / Mathf.Max(pickGarbage.Weight, 1)) * 0.1f, 0.2f);
+			Vector3 speed = dir * statusManager.BaseSpeed;
+			rb.velocity = speed;
 			transform.rotation = Quaternion.LookRotation(dir);
 			animator.StartMove();
 		}

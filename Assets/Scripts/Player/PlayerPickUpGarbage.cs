@@ -60,7 +60,11 @@ namespace CleanCity
 
 		public void ClearGarbage()
 		{
-			foreach (Garbage garbage in garbages) scoreManager.AddScore(garbage.Score);
+			foreach (Garbage garbage in garbages)
+			{
+				scoreManager.AddClearedGarbage();
+				scoreManager.AddScore(garbage.Score);
+			}
 			garbagePlace.Clear();
 			garbages.Clear();
 			Locator<SoundBank>.Resolve().TrashDiscard();
