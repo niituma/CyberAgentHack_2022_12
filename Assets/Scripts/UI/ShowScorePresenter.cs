@@ -27,7 +27,7 @@ namespace CleanCity.UI
             FindObjectOfType<PlayerPickUpGarbage>().OnPickUpGabage += (Garbage) =>
             {
                 _model.Count++;
-                CountShow(_model.Count / Locator<IQuota>.Resolve().GetNextQuoa(Locator<IWaveSystem>.Resolve().GetWave));
+                CountShow(_model.Count / Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave));
             };
 
             if (GameSystem.Singleton)
