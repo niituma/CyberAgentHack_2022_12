@@ -16,10 +16,12 @@ namespace CleanCity
 		[SerializeField] private bool isTest = false;
 		 
 		private IGarbageDatabase garbageDatabase;
+		private IGarbageAreaManager garbageAreaManager;
 
 		private void Start()
 		{
 			garbageDatabase = Locator<IGarbageDatabase>.Resolve();
+			garbageAreaManager = Locator<IGarbageAreaManager>.Resolve();
 			StartCoroutine(CreateGarbage());
 		}
 
@@ -31,6 +33,7 @@ namespace CleanCity
 			{
 				if(!isTest) yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
 				yield return new WaitForSeconds(Random.Range(throwIntervalMin, throwIntervalMax));
+				yield return new WaitUntil(()=>garbageAreaManager.InGarbageArea(transform.position));
 				Garbage garbage = garbageDatabase.CreateRandomGarbage();
 				garbage.transform.position = transform.position;
 				garbage.transform.DOMove(transform.position + new Vector3(Random.Range(-throwGarbageArea, throwGarbageArea), 0, Random.Range(-throwGarbageArea, throwGarbageArea)), throwTime);
