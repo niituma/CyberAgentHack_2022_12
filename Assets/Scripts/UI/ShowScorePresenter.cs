@@ -30,17 +30,6 @@ namespace CleanCity.UI
                 CountShow(_model.Count / Locator<IQuota>.Resolve().GetNextQuoa(Locator<IWaveSystem>.Resolve().GetWave));
             };
 
-            if (GameSystem.Singleton)
-            {
-                GameSystem.Singleton.onStatusChanged += (before, to) =>
-                {
-                    if (to == GameSystem.State.InGame)
-                    {
-                        _view.SetQuota();
-                    }
-                };
-            }
-
             if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
         }
 

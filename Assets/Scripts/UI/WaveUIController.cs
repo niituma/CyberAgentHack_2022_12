@@ -22,16 +22,16 @@ public class WaveUIController : MonoBehaviour
             SetAnimUI(num);
         };
 
-        //if (GameSystem.Singleton)
-        //{
-        //    GameSystem.Singleton.onStatusChanged += (before, to) =>
-        //           {
-        //               if (to == GameSystem.State.InGame)
-        //               {
-        //                   SetAnimUI(Locator<IWaveSystem>.Resolve().GetWave);
-        //               }
-        //           };
-        //}
+        if (GameSystem.Singleton)
+        {
+            GameSystem.Singleton.onStatusChanged += (before, to) =>
+                   {
+                       if (to == GameSystem.State.InGame)
+                       {
+                           SetAnimUI(Locator<IWaveSystem>.Resolve().GetWave);
+                       }
+                   };
+        }
     }
 
     public void SetAnimUI(int num)
