@@ -9,6 +9,7 @@ namespace CleanCity
         [SerializeField] private GarbageDatabase garbageDatabase;
         [SerializeField] private Quota quota;
         [SerializeField] private SoundBank soundBank;
+        [SerializeField] private GarbageAreaManager garbageAreaManager;
 
         private void Awake()
         {
@@ -21,6 +22,7 @@ namespace CleanCity
             Locator<IWallet>.Register(new Wallet());
             Locator<IWaveSystem>.Register(new WaveSystem());
             Locator<SoundBank>.Register(soundBank);
+            Locator<IGarbageAreaManager>.Register(garbageAreaManager);
         }
     }
 }
