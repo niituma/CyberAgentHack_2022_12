@@ -7,7 +7,8 @@ namespace CleanCity
 {
 	public class EnemyThrowGarbage : MonoBehaviour
 	{
-		[SerializeField] private float throwInterval = 1.5f;
+		[SerializeField] private float throwIntervalMin = 0.1f;
+		[SerializeField] private float throwIntervalMax = 1.5f;
 
 		private IGarbageDatabase garbageDatabase;
 
@@ -23,7 +24,7 @@ namespace CleanCity
 			while(true)
 			{
 				yield return new WaitUntil(() => GameSystem.Singleton.Status == GameSystem.State.InGame);
-				yield return new WaitForSeconds(throwInterval);
+				yield return new WaitForSeconds(Random.Range(throwIntervalMin, throwIntervalMax));
 				Garbage garbage = garbageDatabase.CreateRandomGarbage();
 
 				garbage.transform.position = transform.position;
