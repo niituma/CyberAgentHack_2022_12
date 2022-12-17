@@ -1,15 +1,8 @@
-﻿using CleanCity;
-using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UniRx;
+﻿using UniRx;
 using UnityEngine;
 using Utility;
-using static UnityEngine.Rendering.DebugUI;
 
-namespace CleanCity_UI
+namespace CleanCity.UI
 {
     public class ShowScorePresenter : MonoBehaviour
     {
