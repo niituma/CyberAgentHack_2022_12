@@ -13,7 +13,7 @@ public class ShowScoreView : MonoBehaviour
     TextMeshProUGUI _scoreText;
     [SerializeField]
     Slider _quotaSlider;
-    // アニメーション時に使用する一時的な現在値
+    // 繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ譎ゅ↓菴ｿ逕ｨ縺吶ｋ荳譎ら噪縺ｪ迴ｾ蝨ｨ蛟､
     int _scoreCurrentValue;
     bool _scoreAnim;
     Tween _countAnim;
@@ -28,7 +28,7 @@ public class ShowScoreView : MonoBehaviour
         DOTween.To(() => _scoreCurrentValue,
                 value =>
                 {
-                    // 背景バーはアニメーションで更新
+                    // 閭梧勹繝舌�ｼ縺ｯ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ縺ｧ譖ｴ譁ｰ
                     _scoreCurrentValue = value;
                     _scoreText.text = $"SCORE:{_scoreCurrentValue}";
                 },value, time);
@@ -39,6 +39,8 @@ public class ShowScoreView : MonoBehaviour
 
     public void SetCountText(float value, float time)
     {
+        Debug.Log(value);
+        
         if (_countAnim is not null) { _countAnim.Kill(); }
         _countAnim = DOTween.To(() => _quotaSlider.value, x => _quotaSlider.value = x, value, time);
     }

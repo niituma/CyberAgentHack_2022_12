@@ -9,7 +9,7 @@ namespace CleanCity
 
 		private void Start()
 		{
-			Locator<IScoreManager>.Resolve().OnAddClearedGarbage += (_) => Locator<IWallet>.Resolve().AddMoney(sellingPrice);
+			Locator<IScoreManager>.Resolve().OnGarbageDiscarded += () => Locator<IWallet>.Resolve().AddMoney(sellingPrice);
 		}
 	}
 }
