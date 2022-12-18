@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     [SerializeField]
     int _countdownMinutes = 3;
     /// <summary>
-    /// 0‚©‚Ç‚¤‚©Šm”F‚·‚é‚½‚ß‚Ì•Ï”
+    /// 0ã‹ã©ã†ã‹ç¢ºèªã™ã‚‹ãŸã‚ã®å¤‰æ•°
     /// </summary>
     public float _countdownSeconds { get; private set; }
     [SerializeField]
