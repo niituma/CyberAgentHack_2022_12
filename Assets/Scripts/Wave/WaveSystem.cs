@@ -40,7 +40,7 @@ namespace CleanCity
         {
             scoreManager = Locator<IScoreManager>.Resolve();
             quota = Locator<IQuota>.Resolve();
-            scoreManager.OnAddClearedGarbage += CheckAddWave;
+            scoreManager.OnGarbageDiscarded += CheckAddWave;
         }
 
         private async void CheckAddWave()

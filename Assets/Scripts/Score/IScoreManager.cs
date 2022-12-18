@@ -8,8 +8,8 @@ namespace CleanCity
         int GetScore { get; }
         /// <summary>スコアが追加されたときのコールバック</summary>
         event Action<(int nowScore, int addScore)> OnAddScore;
-        /// <summary>処理したごみの数が追加されたときのコールバック</summary>
-        event Action OnAddClearedGarbage;
+        /// <summary>ゴミがごみ箱に捨てられた時のコールバック</summary>
+        event Action OnGarbageDiscarded;
         /// <summary>スコアを追加する</summary>
         void AddScore(int score);
         /// <summary>処理したごみの数を追加</summary>

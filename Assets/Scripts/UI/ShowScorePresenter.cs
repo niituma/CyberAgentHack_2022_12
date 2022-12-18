@@ -24,7 +24,7 @@ namespace CleanCity.UI
                 CountShow(0);
             };
 
-            Locator<IScoreManager>.Resolve().OnAddClearedGarbage += () =>
+            Locator<IScoreManager>.Resolve().OnGarbageDiscarded += () =>
             {
                 var progress = Locator<IWaveSystem>.Resolve().GetWaveProgress();
                 CountShow(progress);
