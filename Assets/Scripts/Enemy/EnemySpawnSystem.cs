@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,10 +17,12 @@ namespace CleanCity
     private List<GameObject> enemies = new List<GameObject>();
     private float timeLeft = 0;
 
+    private IWaveSystem _waveSystem;
+
     private void Start()
     {
-      var waveSystem = Locator<IWaveSystem>.Resolve();
-      waveSystem.OnAddWave += OnAddWave;
+      _waveSystem = Locator<IWaveSystem>.Resolve();
+      _waveSystem.OnAddWave += OnAddWave;
       Locator<IEnemySpawnSystem>.Register(this);
     }
 
@@ -34,7 +35,7 @@ namespace CleanCity
 
     private void Update()
     {
-      if (!IsSpawnState(GameSystem.Singleton.Status))
+      if (!IsSpawnState())
       {
         return;
       }
@@ -50,9 +51,10 @@ namespace CleanCity
       }
     }
     
-    private static bool IsSpawnState(GameSystem.State status)
+    private bool IsSpawnState()
     {
-      return status is GameSystem.State.Menu or GameSystem.State.InGame;
+      return GameSystem.Singleton.Status is GameSystem.State.Menu or GameSystem.State.InGame 
+             && !_waveSystem.IsBreakTime;
     }
 
     /// <summary>
