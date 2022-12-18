@@ -36,6 +36,12 @@ namespace CleanCity
 		public void Damage(int point)
 		{
 			if(!isTest) if (GameSystem.Singleton.Status != GameSystem.State.InGame) return;
+
+			if (Locator<IWaveSystem>.Resolve().IsBreakTime)
+			{
+				return;
+			}
+			
 			if (IsDead) return;
 
 			hp -= point;
