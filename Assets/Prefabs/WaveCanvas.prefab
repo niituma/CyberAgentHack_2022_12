@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waveText: {fileID: 1880456385113236005}
-  breakTimeJumpY: 10
+  breakTimeJumpY: 1
 --- !u!1 &7125475026170807930
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.86, y: 0.56}
+  m_AnchoredPosition: {x: -1.8599854, y: 0.55999756}
   m_SizeDelta: {x: 13, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2544498468419201573
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5331801501051609583
 MonoBehaviour:
   m_ObjectHideFlags: 0
