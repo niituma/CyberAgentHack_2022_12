@@ -12,6 +12,9 @@ namespace CleanCity
 		[SerializeField] private Button bombButton;
 		[SerializeField] private Button vacuumButton;
 
+		[SerializeField] private GameObject cantBoughtBomb;
+		[SerializeField] private GameObject cantBoughtVacuum;
+
 		[SerializeField] private TMP_Text bombCountText;
 		[SerializeField] private TMP_Text vacuumCounttext;
 
@@ -37,11 +40,18 @@ namespace CleanCity
 
 			Locator<IWaveSystem>.Resolve().OnBreakTimeStatusChanged += (b) => 
 			{
+				CheckBought();
 				if (b)
 					animator.Play("Show");
 				else
 					animator.Play("Hide");
 			};
+		}
+
+		private void CheckBought()
+		{
+			if (wallet.GetMoney < bombPrice) cantBoughtBomb.SetActive(true); else cantBoughtBomb.SetActive(false);
+			if (wallet.GetMoney < vacuumPrice) cantBoughtVacuum.SetActive(true); else cantBoughtVacuum.SetActive(false);
 		}
 
 		private void BuyBomb()
@@ -54,6 +64,7 @@ namespace CleanCity
 				bombCountText.text = bombCount.ToString();
 				Locator<SoundBank>.Resolve().BoughtSE();
 			}
+			CheckBought();
 		}
 
 		private void BuyVacuum()
@@ -64,8 +75,9 @@ namespace CleanCity
 				wallet.ReduceMoney(vacuumPrice);
 				vacuumButtonAnimator.Play("Bought");
 				vacuumCounttext.text = vacuumCount.ToString();
-				Locator<SoundBank>.Resolve().BoughtSE();
+				Locator<SoundBank>.Resolve().BoughtSE(); 
 			}
+			CheckBought();
 		}
 
 		private void Update()
