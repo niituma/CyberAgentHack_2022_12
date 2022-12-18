@@ -19,7 +19,9 @@ namespace CleanCity
                 Vector3 position = enemy.transform.position;
                 Instantiate(humanExplosionPrefab, position, Quaternion.identity);
                 Destroy(enemy);
+
             }
+            Locator<SoundBank>.Resolve().BombSE();
 		}
 	}
 }
