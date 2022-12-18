@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CleanCity
@@ -12,11 +13,18 @@ namespace CleanCity
         public int Score => score;
         public Vector3 Size => size;
 
+        public event Action OnDestroyEvent;
+
         public bool IsPickedUp { get; private set; }
 
         public void OnPickUp()
         {
             IsPickedUp = true;
+        }
+
+		private void OnDestroy()
+		{
+            OnDestroyEvent?.Invoke();
         }
 	}
 }

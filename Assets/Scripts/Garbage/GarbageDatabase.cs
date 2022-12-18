@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using UnityEngine;
 
 namespace CleanCity
 {
@@ -7,10 +9,20 @@ namespace CleanCity
     {
         [SerializeField] private Garbage[] garbages;
 
+		private List<Garbage> garbageInstances = new List<Garbage>();
+
 		/// <summary>ランダムにゴミを取得</summary>
 		public Garbage CreateRandomGarbage()
 		{
-			return Instantiate(garbages[Random.Range(0, garbages.Length)]);
+			Garbage garbageInstance = Instantiate(garbages[Random.Range(0, garbages.Length)]);
+			garbageInstances.Add(garbageInstance);
+			garbageInstance.OnDestroyEvent += () => garbageInstances.Remove(garbageInstance);
+			return garbageInstance;
+		}
+
+		public ReadOnlyCollection<Garbage> GetGarbageInstances()
+		{
+			return garbageInstances.AsReadOnly();
 		}
 	}
 }
