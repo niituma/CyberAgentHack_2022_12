@@ -7,5 +7,6 @@ namespace CleanCity
 		float GetNextSpawnTimeSpan(int waveNow);
 
 		int GetNextMaxSpawnCount(int waveNow);
+		int GetNextWaveTimeSec(int waveNow);
 	}
 }
