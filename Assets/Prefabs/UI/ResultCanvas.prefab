@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 6106883507760706771}
-  _UIParent: {fileID: 0}
+  _UIParent: {fileID: 6215906438864695336}
   _time: 5
   _startShow: 1
 --- !u!114 &6106883507760706771
