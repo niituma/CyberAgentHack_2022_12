@@ -19,6 +19,9 @@ namespace CleanCity
         [SerializeField] private AudioClip title;      //ボタン
         [SerializeField] private AudioClip ingame;      //拾う
         [SerializeField] private AudioClip result;     //捨てる
+        [SerializeField] private AudioClip bomb;       //ボム
+        [SerializeField] private AudioClip vacuum;     //吸収
+        [SerializeField] private AudioClip bought;     //購入
 
         private void Start()
         {
@@ -80,6 +83,24 @@ namespace CleanCity
         {
             //音を鳴らす
             seAudioSource.PlayOneShot(result);
+        }
+
+        public void BombSE()
+        {
+            //音を鳴らす
+            seAudioSource.PlayOneShot(bomb);
+        }
+
+        public void VacuumSE()
+        {
+            //音を鳴らす
+            seAudioSource.PlayOneShot(vacuum);
+        }
+
+        public void BoughtSE()
+        {
+            //音を鳴らす
+            seAudioSource.PlayOneShot(bought);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace CleanCity
 		[SerializeField] private TMP_Text vacuumCounttext;
 
 		[SerializeField] private Animator animator;
+		[SerializeField] private Animator bombButtonAnimator;
+		[SerializeField] private Animator vacuumButtonAnimator;
 
 		[SerializeField] private int bombPrice = 300;
 		[SerializeField] private int vacuumPrice = 300;
@@ -48,7 +50,9 @@ namespace CleanCity
 			{
 				bombCount++;
 				wallet.ReduceMoney(bombPrice);
+				bombButtonAnimator.Play("Bought");
 				bombCountText.text = bombCount.ToString();
+				Locator<SoundBank>.Resolve().BoughtSE();
 			}
 		}
 
@@ -58,7 +62,9 @@ namespace CleanCity
 			{
 				vacuumCount++;
 				wallet.ReduceMoney(vacuumPrice);
+				vacuumButtonAnimator.Play("Bought");
 				vacuumCounttext.text = vacuumCount.ToString();
+				Locator<SoundBank>.Resolve().BoughtSE();
 			}
 		}
 

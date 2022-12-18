@@ -29,7 +29,8 @@ namespace CleanCity
                 {
                     Destroy(trail.gameObject);
                 };
-			}
+            }
+            Locator<SoundBank>.Resolve().VacuumSE();
         }
 	}
 }
