@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace CleanCity
 {
-  public class EnemySpawnSystem : MonoBehaviour
+  public class EnemySpawnSystem : MonoBehaviour, IEnemySpawnSystem
   {
     [SerializeField] private List<EnemySpawnData> enemyDataList;
     [SerializeField] private List<Transform> spawnPoints;
@@ -22,6 +22,7 @@ namespace CleanCity
     {
       var waveSystem = Locator<IWaveSystem>.Resolve();
       waveSystem.OnAddWave += OnAddWave;
+      Locator<IEnemySpawnSystem>.Register(this);
     }
 
     private void OnAddWave(int wave)
@@ -139,6 +140,13 @@ namespace CleanCity
       // 行き先を設定
       var moveDir = enemy.GetComponent<ISetEnemyMoveDir>();
       moveDir.SetMoveDistination(dest.position);
+    }
+
+    public List<GameObject> GetAliveEnemies()
+    {
+      // 敵のリストを更新する
+      enemies = enemies.Where(v => v != null).ToList();
+      return enemies;
     }
   }
 }
