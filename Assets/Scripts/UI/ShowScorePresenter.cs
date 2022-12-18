@@ -1,8 +1,6 @@
 ﻿using DG.Tweening;
 using UniRx;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Utility;
 
 namespace CleanCity.UI
