@@ -20,10 +20,12 @@ namespace CleanCity.UI
             
             Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
             {
-                _model.Count = 0;
                 CountShow(0);
             };
-
+            Locator<IWallet>.Resolve().OnChangeMoney += (value) =>
+            {
+                MoneyShow(value.nowMoney);
+            };
             Locator<IScoreManager>.Resolve().OnGarbageDiscarded += () =>
             {
                 var progress = Locator<IWaveSystem>.Resolve().GetWaveProgress();
@@ -43,10 +45,15 @@ namespace CleanCity.UI
             _model.CurrentScoreChanged.
             First().Subscribe(value => _view.SetScoreText(value, _time));
         }
-
+        public void MoneyShow(int value)
+        {
+            _model.SetMoneyValue(value);
+            _model.CurrentMoneyChanged.
+            First().Subscribe(value => _view.SetMoneyText(value, _time));
+        }
         public void CountShow(float value)
         {
-            _view.SetCountText(value, 0.4f);
+            _view.SetCountValue(value, 0.4f);
         }
     }
 }

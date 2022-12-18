@@ -1,9 +1,4 @@
 ﻿using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
