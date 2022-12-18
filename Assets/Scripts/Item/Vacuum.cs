@@ -31,13 +31,5 @@ namespace CleanCity
                 };
 			}
         }
-
-		private void Update()
-		{
-			if(Input.GetKeyDown(KeyCode.V))
-            {
-                Use();
-            }
-		}
 	}
 }

@@ -21,13 +21,5 @@ namespace CleanCity
                 Destroy(enemy);
             }
 		}
-
-		private void Update()
-		{
-			if(Input.GetKeyDown(KeyCode.Space))
-            {
-                Use();
-			}
-		}
 	}
 }
