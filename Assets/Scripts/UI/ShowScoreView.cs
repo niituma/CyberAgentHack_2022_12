@@ -12,15 +12,19 @@ public class ShowScoreView : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI _scoreText;
     [SerializeField]
+    TextMeshProUGUI _moneyText;
+    [SerializeField]
     Slider _quotaSlider;
     // アニメーション時に使用する一時的な現在値
     int _scoreCurrentValue;
+    int _moneyCurrentValue;
     bool _scoreAnim;
+    bool _moneyAnim;
     Tween _countAnim;
 
     public void ResetSlider()
     {
-        SetCountText(0, 0.2f);
+        SetCountValue(0, 0.2f);
     }
 
     public void SetScoreText(int value, float time)
@@ -36,8 +40,21 @@ public class ShowScoreView : MonoBehaviour
 
         _scoreAnim = true;
     }
+    public void SetMoneyText(int value, float time)
+    {
+        DOTween.To(() => _moneyCurrentValue,
+                value =>
+                {
+                    // 背景バーはアニメーションで更新
+                    _moneyCurrentValue = value;
+                    _moneyText.text = $"MONEY:{_moneyCurrentValue}";
+                }, value, time);
+        if (!_moneyAnim) { _moneyText.transform.DOShakeScale(duration: time, strength: 0.3f).OnComplete(() => _scoreAnim = false); }
 
-    public void SetCountText(float value, float time)
+        _moneyAnim = true;
+    }
+
+    public void SetCountValue(float value, float time)
     {
         Debug.Log(value);
         

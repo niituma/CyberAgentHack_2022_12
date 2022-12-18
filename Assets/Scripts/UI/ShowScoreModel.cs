@@ -7,17 +7,17 @@ public class ShowScoreModel
     public IObservable<int> CurrentScoreChanged => _score;
     readonly ReactiveProperty<int> _score = new();
 
-    public float Count { get => _count.Value; set => _count.Value = value; }
-    public IObservable<float> CurrentCountChanged => _count;
-    readonly ReactiveProperty<float> _count = new();
+    public int Money { get => _money.Value; set => _money.Value = value; }
+    public IObservable<int> CurrentMoneyChanged => _money;
+    readonly ReactiveProperty<int> _money = new();
 
     public void SetScoreValue(int value)
     {
         _score.Value = value;
     }
 
-    public void SetCountValue(float value)
+    public void SetMoneyValue(int value)
     {
-        _count.Value = value;
+        _money.Value = value;
     }
 }
