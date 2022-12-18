@@ -1,16 +1,11 @@
 using CleanCity;
-using CleanCity.UI;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Utility;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]
-    int _countdownMinutes = 3;
     /// <summary>
     /// 0かどうか確認するための変数
     /// </summary>
@@ -23,16 +18,18 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         Locator<Timer>.Register(this);
-        _countdownSeconds = _countdownMinutes * 60;
     }
 
     private void Start()
     {
+        _waveSystem = Locator<IWaveSystem>.Resolve();
+        var quota = Locator<IQuota>.Resolve();
+        
         Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
         {
-            _countdownSeconds = _countdownMinutes * 60;
+            _countdownSeconds = quota.GetNextWaveTimeSec(_waveSystem.GetWave);
         };
-        _waveSystem = Locator<IWaveSystem>.Resolve();
+        _countdownSeconds = quota.GetNextWaveTimeSec(1);
     }
 
     void Update()
