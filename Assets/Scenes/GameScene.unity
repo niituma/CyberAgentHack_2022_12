@@ -11638,8 +11638,8 @@ MonoBehaviour:
   animator: {fileID: 4426234102977339722}
   bombButtonAnimator: {fileID: 626281196}
   vacuumButtonAnimator: {fileID: 107374240}
-  bombPrice: 1
-  vacuumPrice: 1
+  bombPrice: 300
+  vacuumPrice: 100
   bomb: {fileID: 1367458123}
   vacuum: {fileID: 1311626368}
 --- !u!225 &4426234102977339721
