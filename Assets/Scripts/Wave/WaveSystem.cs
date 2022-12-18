@@ -73,7 +73,7 @@ namespace CleanCity
         /// <returns></returns>
         public float GetWaveProgress()
         {
-            return garbageCount / quota.GetNextQuota(wave);
+            return garbageCount / (float)quota.GetNextQuota(wave);
         }
     }
 }
