@@ -1,5 +1,8 @@
-﻿using UniRx;
+﻿using DG.Tweening;
+using UniRx;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utility;
 
 namespace CleanCity.UI
@@ -7,12 +10,15 @@ namespace CleanCity.UI
     public class ShowScorePresenter : MonoBehaviour
     {
         [SerializeField] ShowScoreView _view;
+        [SerializeField] GameObject _UIParent;
+
         [SerializeField] float _time = 1f;
         [SerializeField] bool _startShow = false;
         ShowScoreModel _model = new ShowScoreModel();
 
         void Start()
         {
+            if (_startShow) { OpenUI(); }
             Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
             {
                 ScoreShow(value.nowScore);
@@ -31,8 +37,6 @@ namespace CleanCity.UI
                 var progress = Locator<IWaveSystem>.Resolve().GetWaveProgress();
                 CountShow(progress);
             };
-
-            if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
         }
 
         /// <summary>
@@ -54,6 +58,16 @@ namespace CleanCity.UI
         public void CountShow(float value)
         {
             _view.SetCountValue(value, 0.4f);
+        }
+
+        public void OpenUI()
+        {
+            _UIParent.transform.localScale = Vector3.zero;
+            _UIParent.GetComponent<CanvasGroup>().alpha = 0;
+            DOTween.Sequence()
+                   .Append(_UIParent.transform.DOScale(1, 1f).SetEase(Ease.OutBack))
+                   .Join(_UIParent.GetComponent<CanvasGroup>().DOFade(1f, 1f).SetEase(Ease.Linear))
+                   .OnComplete(() => ScoreShow(Locator<IScoreManager>.Resolve().GetScore));
         }
     }
 }
