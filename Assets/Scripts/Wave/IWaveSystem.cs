@@ -6,5 +6,11 @@ namespace CleanCity
     {
         int GetWave { get; }
         event Action<int> OnAddWave;
+        
+        bool IsBreakTime { get; }
+
+        event Action<bool> OnBreakTimeStatusChanged;
+
+        float GetWaveProgress();
     }
 }

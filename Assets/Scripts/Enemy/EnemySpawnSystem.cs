@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace CleanCity
 {
-  public class EnemySpawnSystem : MonoBehaviour
+  public class EnemySpawnSystem : MonoBehaviour, IEnemySpawnSystem
   {
     [SerializeField] private List<EnemySpawnData> enemyDataList;
     [SerializeField] private List<Transform> spawnPoints;
@@ -18,10 +17,13 @@ namespace CleanCity
     private List<GameObject> enemies = new List<GameObject>();
     private float timeLeft = 0;
 
+    private IWaveSystem _waveSystem;
+
     private void Start()
     {
-      var waveSystem = Locator<IWaveSystem>.Resolve();
-      waveSystem.OnAddWave += OnAddWave;
+      _waveSystem = Locator<IWaveSystem>.Resolve();
+      _waveSystem.OnAddWave += OnAddWave;
+      Locator<IEnemySpawnSystem>.Register(this);
     }
 
     private void OnAddWave(int wave)
@@ -33,7 +35,7 @@ namespace CleanCity
 
     private void Update()
     {
-      if (!IsSpawnState(GameSystem.Singleton.Status))
+      if (!IsSpawnState())
       {
         return;
       }
@@ -49,9 +51,10 @@ namespace CleanCity
       }
     }
     
-    private static bool IsSpawnState(GameSystem.State status)
+    private bool IsSpawnState()
     {
-      return status is GameSystem.State.Menu or GameSystem.State.InGame;
+      return GameSystem.Singleton.Status is GameSystem.State.Menu or GameSystem.State.InGame 
+             && !_waveSystem.IsBreakTime;
     }
 
     /// <summary>
@@ -139,6 +142,13 @@ namespace CleanCity
       // 行き先を設定
       var moveDir = enemy.GetComponent<ISetEnemyMoveDir>();
       moveDir.SetMoveDistination(dest.position);
+    }
+
+    public List<GameObject> GetAliveEnemies()
+    {
+      // 敵のリストを更新する
+      enemies = enemies.Where(v => v != null).ToList();
+      return enemies;
     }
   }
 }
