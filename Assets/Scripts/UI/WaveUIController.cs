@@ -12,6 +12,7 @@ public class WaveUIController : MonoBehaviour
     TextMeshProUGUI _waveText;
     CanvasGroup _canvasGroup;
     RectTransform rectTransform;
+    [SerializeField] private float breakTimeJumpY = 10f;
 
     Tween BreakTimeAnim;
     // Start is called before the first frame update
@@ -67,7 +68,7 @@ public class WaveUIController : MonoBehaviour
         transform.localScale = Vector3.one;
         GetComponent<CanvasGroup>().alpha = 1;
         BreakTimeAnim = DOTween.Sequence()
-                          .Append(rectTransform.DOLocalMoveY(10f, 0.5f)
+                          .Append(rectTransform.DOLocalMoveY(breakTimeJumpY, 0.5f)
                           .SetRelative(true)
                           .SetEase(Ease.OutQuad))
                           .Join(DOTween.To(() => GetComponent<CanvasGroup>().alpha, a => GetComponent<CanvasGroup>().alpha = a, 0, 0.5f))
