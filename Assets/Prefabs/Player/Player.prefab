@@ -144,7 +144,7 @@ MonoBehaviour:
   maxHp: 3
   hp: 3
   baseSpeed: 10
-  canHaveGarbageLimit: 10
+  canHaveGarbageLimit: 100000
   isTest: 0
 --- !u!114 &8629254596079393729
 MonoBehaviour:
