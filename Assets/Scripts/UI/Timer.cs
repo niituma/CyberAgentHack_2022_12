@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
 
         if (_waveSystem.IsBreakTime)
         {
+            _timeText.color = Color.black;
             return;
         }
 
@@ -57,5 +58,14 @@ public class Timer : MonoBehaviour
         _countdownSeconds -= Time.deltaTime;
         var span = new TimeSpan(0, 0, (int)_countdownSeconds);
         _timeText.text = span.ToString(@"mm\:ss");
+
+        if (_countdownSeconds <= 10)
+        {
+            _timeText.color = Color.red;
+        }
+        else
+        {
+            _timeText.color = Color.black;
+        }
     }
 }
