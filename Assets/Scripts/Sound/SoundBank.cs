@@ -27,12 +27,14 @@ namespace CleanCity
                 if (to == GameSystem.State.InGame)
                 {
                     bgmAudioSource.clip = ingame;
+                    bgmAudioSource.loop = true;
                     bgmAudioSource.Play();
                 }
                 else if (to == GameSystem.State.Result)
                 {
                     bgmAudioSource.Stop();
                     bgmAudioSource.clip = result;
+                    bgmAudioSource.loop = true;
                     bgmAudioSource.Play();
                 }
             };
