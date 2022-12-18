@@ -39,6 +39,8 @@ public class ShowScoreView : MonoBehaviour
 
     public void SetCountText(float value, float time)
     {
+        Debug.Log(value);
+        
         if (_countAnim is not null) { _countAnim.Kill(); }
         _countAnim = DOTween.To(() => _quotaSlider.value, x => _quotaSlider.value = x, value, time);
     }

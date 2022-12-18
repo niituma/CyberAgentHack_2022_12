@@ -1,7 +1,6 @@
 ﻿using UniRx;
 using UnityEngine;
 using Utility;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace CleanCity.UI
 {
@@ -14,23 +13,21 @@ namespace CleanCity.UI
 
         void Start()
         {
+            Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
+            {
+                ScoreShow(value.nowScore);
+            };
+            
             Locator<IWaveSystem>.Resolve().OnAddWave += (num) =>
             {
                 _model.Count = 0;
                 CountShow(0);
             };
 
-            Locator<IScoreManager>.Resolve().OnAddScore += (value) =>
+            Locator<IScoreManager>.Resolve().OnAddClearedGarbage += () =>
             {
-                ScoreShow(value.nowScore);
-            };
-
-            Locator<IScoreManager>.Resolve().OnAddClearedGarbage += (num) =>
-            {
-                var quota = (float)Locator<IQuota>.Resolve().GetNextQuota(Locator<IWaveSystem>.Resolve().GetWave);
-                if(_model.Count > quota) { return; }
-                _model.Count++;
-                CountShow(_model.Count / quota);
+                var progress = Locator<IWaveSystem>.Resolve().GetWaveProgress();
+                CountShow(progress);
             };
 
             if (_startShow) { ScoreShow(Locator<IScoreManager>.Resolve().GetScore); }//仮の値を入れてる最終的にはゲーム終了までの総合得点を入れる
